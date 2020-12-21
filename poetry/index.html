@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Poetry App</title>
+        <meta name="viewport" content="width=device, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    </head>
+    <body onload="ready()">
+    <h2>Poetry App Using Api</h2>
+    <div id="body">
+    <center>
+    <img id="ldr" src ="https://s8.gifyu.com/images/ajax-loader.gif">
+        <div class="poet-selector">
+        <h3 style="color:white;"></h3>
+            <select id="list">
+                <option value="0">Select Poet</option>
+            </select>
+            <br />
+            <button onclick="poems()">Done</button>
+        </div>
+             
+        <div class="poem-selector">
+        
+        <h3 style="color:white;"> </h3>
+            <select id="list2">
+                <option value="0">Select Poem</option>
+            </select>
+            
+            <br />
+            <button onclick="poem()">Done</button>
+        </div>
+        </center>
+        </div>
+        <div id="poem"></div>
+        <center><button id="back" onclick="back()">Back</button></center>
+    </body>
+    <script src="script.js"></script>
+</html>

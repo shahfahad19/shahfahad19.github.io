@@ -1,0 +1,26 @@
+body {
+    text-align: center ;
+}
+
+button {
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+code {
+    background-color: white;
+    font-size: 12px;
+}
+.code {
+    text-align: left;
+    width: 90%;
+    display: none;
+}
+h1 {
+    opacity:0.1;
+}

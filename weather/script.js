@@ -1,11 +1,19 @@
-var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var i= 0;
 var d ='', day='';
 var url = "https://api.weatherapi.com/v1/forecast.json";
 var key = "8a1362221e524488b3e112953200305";
 
 $(document).ready(function(){
-       weather('Islamabad');
+    const geturl = window.location;
+    const url = new URL(geturl); const f = url.searchParams.has('c');
+    const c = url.searchParams.get('c');
+    if (f==true) {
+   			 	weather(c);
+    }
+    else {
+    				weather('Swabi');
+    }
     $("#mainbody").hide();
     $("#forecasttable").hide();
     $("#loadingbox").show();
@@ -16,18 +24,18 @@ var api = url+'?key='+key+'&q='+city+'&days=3';
 $.getJSON(api, function(result) {
         $("#city").html(result.location.name);
         $("#mainbody img").attr("src", 'https:'+result.current.condition.icon);
-        $("#temp").html(result.current.temp_c+' °C');
+        $("#temp").html(result.current.temp_c+' Â°C');
         $("#chanceofrain").html(result.forecast.forecastday[0].day.daily_chance_of_rain+' %');
         $("#cond").html(result.current.condition.text);
         $("#humidity").html(result.current.humidity+' %');
-        $("#feel").html(result.current.feelslike_c+' °C');
+        $("#feel").html(result.current.feelslike_c+' Â°C');
         $("#wind").html(result.current.wind_kph+' km/h');
         $("#direction").html(result.current.wind_dir);
         $("#update").html(result.current.last_updated);
         $("#mainbody").show();
         for(i=0;i<=2;i++) {
         var date = result.forecast.forecastday[i].date;
-        var avgtemp = result.forecast.forecastday[i].day.avgtemp_c+' °C';
+        var avgtemp = result.forecast.forecastday[i].day.avgtemp_c+' Â°C';
         var humidity = result.forecast.forecastday[i].day.avghumidity+' %';
         var rain = result.forecast.forecastday[i].day.daily_chance_of_rain+' %';
         var sunrise = result.forecast.forecastday[i].astro.sunrise;

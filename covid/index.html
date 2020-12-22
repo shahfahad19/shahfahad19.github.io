@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Covid-19 in Pakistan</title>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="icon.png">
+    </head>
+    <center>
+    <body>
+    <div id="logo">Covid-19 in Pakistan</div>
+    <form autocomplete="off" action="search()">
+    <div class="autocomplete" style="width:300px;">
+    <input id="countryName" type="text" placeholder="Type country name...">
+    </div>
+    </form>
+    <input onclick="search()" type="submit">
+    <hr>
+    <div class='cases'><span>Total cases: </span><span id="infected">...</span><br />
+    <span>Active cases: </span><span id="active">...</span>
+    </div>
+    <br />
+    <div class='recovered'><span>Recovered</span><br><span id="recovered">...</span></div>
+    
+    <div class='deaths'><span>Deaths</span><br /><span id="deaths">...</span></div>
+    
+    <div class='severe'><span>Critical</span><br/><span id="severe">...</span></div>
+    <br />
+    <br />
+    <div id="data">
+    <center><span id="title">Pakistan stats</span></center> <hr/>
+    <span>New cases: </span><span id="new">...</span><br />
+    <span>New Deaths: </span><span id="newdeaths">...</span><br />
+    <span>Cases/1 Mil.: </span><span id="cases1mil">...</span><br />
+    <span>Total Tests: </span><span id="tests">...</span> 
+    </div>
+    <br />
+    <div id="data2">
+    
+    <center><span id="title2">Global stats</span></center> <hr/>
+    <span>Total cases: </span><span id="gt">...</span><br />
+    <span>Active cases: </span><span id="ga">...</span> <br />
+    <span>Deaths: </span><span id="gd">...</span><br />
+    <span>Recovered: </span><span id="gr">...</span><br />
+    <span>New cases: </span><span id="gnc">...</span><br />
+    <span>New Deaths: </span><span id="gnd">...</span><br />
+    <span>Cases/1 Mil.: </span><span id="gcm">...</span><br />
+    <span>Deaths/1 Mil.: </span><span id="gdm">...</span> 
+    
+    </div>
+    <p id="cd">Code by Shah Fahad</p>
+    <br/>
+    </center>
+    
+    </body>
+   
+    <script type="text/javascript" src="script.js"></script>
+    
+</html>

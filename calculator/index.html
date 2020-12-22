@@ -1,53 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Simple Calculator</title>
-        <style type="text/css">
-        body {
-    background-color:#D7CCC8;
-}
-button {
-    margin: 5px;
-    height: 40px;
-    width: 62px;
-    font-size: 20px;
-    font-weight:bold;
-    background-color: #1E88E5;
-    color: white;
-    border: none;
-    box-shadow: 0 0 5px grey;
-    border-radius: 8px;
-}
-#display {
-    background-color: #69F0AE;
-    font-size:23px;
-    text-align: right;
-    font-weight: bold;
-    color: #1B5E20;
-    margin: 20px;
-    margin-top: 10px;
-    padding: 5px;
-    font-family: 'Orbitron', sans-serif;
-    height:25px;
-    overflow:auto;
-}
-
-#logo {
-    font-size: 18px;
-    color: grey;
-    font-weight: bold;
-    padding: 10px;
-}
-#calc {
-    background-color: #E3F2FD;
-    width: 340px;
-    border: none;
-    border-radius: 15px;
-}
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-       <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     </head>
     <body>
         <center>
@@ -60,7 +18,7 @@ button {
         <div id="buttons">
             <button onclick="input('(')">(</button>
             <button onclick="input(')')">)</button>
-            <button onclick="input('c')">C</button>
+            <button onclick="input('c')">Del</button>
             <button onclick="input('ac')">AC</button>
             <br />
             <button onclick="input(7)">7</button>
@@ -89,5 +47,5 @@ button {
         </div>
         </center>
     </body>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </html>

@@ -1,0 +1,248 @@
+       body {
+       font-family:'Righteous', cursive;
+       background: linear-gradient(to right, #56CCF2, #2F80ED);
+       border: 2px solid #2F80ED;
+       }
+       #ico {
+       height: 45px;
+       width: 75px;
+       float: left;
+       }
+       #data, #data2 {
+       border: 2px solid grey;
+       color:grey;
+       font-size: 25px;
+       width:335px;
+       text-align:left;
+       padding:5px;
+       background-color:white;
+       }
+       #cd {
+       animation: tada 2s 100;
+       }
+       #newdeaths, #tests, #cases1mil, #new, #active, #infected, #gd, #gt, #ga, #gr, #gnc, #gnd, #gdm, #gcm {
+       float:right;
+       }
+       #gd{
+       color:red;  
+       }
+       #gr {
+       color:rgb(67, 160, 71);
+       }
+       #ga {
+       color:brown;
+       }
+       #gt {
+       color: black;
+       }
+       #logo {
+       color: #FF4500;
+       text-align: center;
+       font-size: 30px;   
+       font-weight:bolder;
+       background-color:#56CCF2 ;
+       text-shadow: 1px 2px 3px white;
+       border-bottom: 2px solid #2F80ED;
+       }
+       #title, #title2 {
+       color: black;
+       }
+       #recovered, #severe, #deaths {
+       font-size: 25px;
+       text-align: center;
+       font-weight: bold;
+       }
+       .cases {
+       font-size: 30px;
+       border: 2px solid grey;
+       width: 335px;
+       text-align: left;
+       background-color:grey;
+       font-weight:bold;
+       color:white;
+       padding: 5px;
+       
+       }
+       .recovered {
+       color: green;
+       font-size: 20px;
+       width: 110px;
+       display: inline-block;
+       border: 2px solid green;
+       text-align: center;
+       background-color:white;
+       }
+       .severe {
+       font-size: 20px;
+       width: 110px;
+       display: inline-block;
+       border: 2px solid rgb(30, 136, 229);
+       text-align: center;
+       color:rgb(30, 136, 229);
+       background-color:white;
+       }
+       .deaths {
+       color:red;
+       font-size: 20px;
+       width: 110px;
+       display: inline-block;
+       border:2px solid rgb(255, 0, 0);
+       text-align: center;
+       background-color:white;
+       }
+       .recovered:hover {
+       color:white;
+       background-color: green;
+       animation: flip 1s 1;
+       }
+       .deaths:hover {
+       color: white;
+       background-color: red;
+       animation: flip 1s 1;
+       }
+       .severe:hover {
+       color: white;
+       background-color: rgb(30, 136, 229);
+       animation: flip 1s 1;
+       }
+       @keyframes flip {
+       from {
+       -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+       rotate3d(0, 1, 0, -360deg);
+       transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+       -webkit-animation-timing-function: ease-out;
+       animation-timing-function: ease-out;
+       }
+       
+       40% {
+       -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+       rotate3d(0, 1, 0, -190deg);
+       transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+       rotate3d(0, 1, 0, -190deg);
+       -webkit-animation-timing-function: ease-out;
+       animation-timing-function: ease-out;
+       }
+       
+       50% {
+       -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+       rotate3d(0, 1, 0, -170deg);
+       transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
+       rotate3d(0, 1, 0, -170deg);
+       -webkit-animation-timing-function: ease-in;
+       animation-timing-function: ease-in;
+       }
+       
+       80% {
+       -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+       rotate3d(0, 1, 0, 0deg);
+       transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
+       rotate3d(0, 1, 0, 0deg);
+       -webkit-animation-timing-function: ease-in;
+       animation-timing-function: ease-in;
+       }
+       
+       to {
+       -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+       rotate3d(0, 1, 0, 0deg);
+       transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+       -webkit-animation-timing-function: ease-in;
+       animation-timing-function: ease-in;
+       }
+       }
+       @keyframes tada {
+       from {
+       -webkit-transform: scale3d(1, 1, 1);
+       transform: scale3d(1, 1, 1);
+       }
+       
+       10%,
+       20% {
+       -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+       transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+       }
+       
+       30%,
+       50%,
+       70%,
+       90% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+       transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+       }
+       
+       40%,
+       60%,
+       80% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+       transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+       }
+       
+       to {
+       -webkit-transform: scale3d(1, 1, 1);
+       transform: scale3d(1, 1, 1);
+       }
+       }
+       * {
+       box-sizing: border-box;
+       }
+       
+       body {
+       font: 16px Arial;  
+       }
+       
+       /*the container must be positioned relative:*/
+       .autocomplete {
+       position: relative;
+       display:inline-block ;
+       }
+       
+       input {
+       border: 1px solid transparent;
+       background-color: #f1f1f1;
+       padding: 10px;
+       font-size: 16px;
+       }
+       
+       input[type=text] {
+       background-color: #f1f1f1;
+       width: 250px;
+       margin: 5px;
+       
+       }
+       
+       input[type=submit] {
+       background-color: DodgerBlue;
+       color: #fff;
+       border: 1px solid white;
+       cursor: pointer;
+       margin-bottom: 5px;
+       }
+       
+       .autocomplete-items {
+       position: absolute;
+       border: 1px solid #d4d4d4;
+       border-bottom: none;
+       border-top: none;
+       z-index: 99;
+       /*position the autocomplete items to be the same width as the container:*/
+       top: 100%;
+       left: 0;
+       right: 0;
+       }
+       
+       .autocomplete-items div {
+       padding: 10px;
+       cursor: pointer;
+       background-color: #fff; 
+       border-bottom: 1px solid #d4d4d4; 
+       }
+       
+       /*when hovering an item:*/
+       .autocomplete-items div:hover {
+       background-color: #e9e9e9; 
+       }
+       
+       /*when navigating through the items using the arrow keys:*/
+       .autocomplete-active {
+       background-color: DodgerBlue !important; 
+       color: #ffffff; 
+       }

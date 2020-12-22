@@ -1,0 +1,47 @@
+body {
+    background-color:#D7CCC8;
+}
+button {
+    margin: 5px;
+    height: 45px;
+    width: 64px;
+    font-size: 23px;
+    font-weight:bold;
+    background-color: #1E88E5;
+    color: white;
+    border: none;
+    box-shadow: 0 0 5px grey;
+    border-radius: 8px;
+}
+
+button:active {
+    height: 43px;
+    box-shadow: 3px 3px 2px grey;   
+}
+
+#display {
+    background-color: #69F0AE;
+    font-size:23px;
+    text-align: right;
+    font-weight: bold;
+    color: #1B5E20;
+    margin: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    font-family: 'Orbitron', sans-serif;
+    height:35px;
+    overflow:auto;
+}
+
+#logo {
+    font-size: 18px;
+    color: grey;
+    font-weight: bold;
+    padding: 10px;
+}
+#calc {
+    background-color: #E3F2FD;
+    width: 340px;
+    border: none;
+    border-radius: 15px;
+}

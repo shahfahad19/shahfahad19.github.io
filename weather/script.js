@@ -24,11 +24,11 @@ var api = url+'?key='+key+'&q='+city+'&days=3';
 $.getJSON(api, function(result) {
         $("#city").html(result.location.name);
         $("#mainbody img").attr("src", 'https:'+result.current.condition.icon);
-        $("#temp").html(result.current.temp_c+' Â°C');
+        $("#temp").html(result.current.temp_c+' °C');
         $("#chanceofrain").html(result.forecast.forecastday[0].day.daily_chance_of_rain+' %');
         $("#cond").html(result.current.condition.text);
         $("#humidity").html(result.current.humidity+' %');
-        $("#feel").html(result.current.feelslike_c+' Â°C');
+        $("#feel").html(result.current.feelslike_c+' °C');
         $("#wind").html(result.current.wind_kph+' km/h');
         $("#direction").html(result.current.wind_dir);
         $("#update").html(result.current.last_updated);

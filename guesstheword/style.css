@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(90deg, rgba(63,63,240,1) 0%, rgba(93,145,235,1) 100%);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+span {
+    font-size: 30px;
+    height: 20px;
+    padding: 1px;
+    margin: 2px;
+    width: 18px;
+}
+
+.main {
+    text-align: center ;
+}
+input {
+    width: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    margin: 2px;
+    text-align: center;
+    color: red;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+}
+
+#done {
+    background-color: transparent;
+    width: 150px;
+    border: 2px solid white;
+    border-radius : 8px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    height: 50px;
+}
+.my-fb {
+    background-color: transparent;
+    width: 180px;
+    border: 2px solid white;
+    border-radius : 8px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    height: 50px;
+}
+
+input:focus, button:focus {
+  outline: 0;
+  outline-color: transparent;
+  outline-style: none;
+}

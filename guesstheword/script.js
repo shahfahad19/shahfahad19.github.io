@@ -94,7 +94,6 @@ function loadWord() {
          }
      }
     }
-    $("#i1").focus();
 }
 
 function next1() {

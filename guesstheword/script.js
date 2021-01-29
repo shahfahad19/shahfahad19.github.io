@@ -9,10 +9,10 @@ function loadWord() {
     if (len<6)
         mode=1;
     else if (len>5 && len <=8) 
-        mode =2 
+        mode =2;
     else if (len>8) 
-        mode =3
-    
+        mode =3;
+        
     //---Mode 1---//    
     if (mode==1) {
         n1 = Math.floor(Math.random() * len);
@@ -94,13 +94,12 @@ function loadWord() {
          }
      }
     }
-$("#i1").focus();
 }
 
 function next1() {
     if ($("#i1").val()==l1) {
         $("#i1").css("color", "white");
-        if ($("#i1").val().length == 1)
+        if ($("#i1").val().length == 1 && mode!=1)
     $("#i2").focus();
     
     }
@@ -109,7 +108,7 @@ function next1() {
 function next2() {
     if ($("#i2").val()==l2) {
         $("#i2").css("color", "white");
-        if ($("#i2").val().length == 1)
+        if ($("#i2").val().length == 1 && mode==3)
     $("#i3").focus();
     
     }
@@ -141,7 +140,6 @@ function tNum() {
     }
 }
 function check() {
-document.activeElement.blur();
     w1 = $("#i1").val().toUpperCase();
     
     if (mode==1) {
@@ -175,7 +173,7 @@ document.activeElement.blur();
 
 function ans(res) {
     if (res=="correct") {
-        alert("Correct!");
+        alert("Correct");
     }
     else if(res=="wrong") {
         alert("False! The correct answer was "+word);

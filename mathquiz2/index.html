@@ -170,7 +170,7 @@ button:focus {
     <script>
         //Declaring Variables
 var count=1, total=0, correct=0, wrong=0, lim=0;
-var ans = "", question ="", width= 220, t = '', n1, n2, n3, r1, r2, cor;
+var ans = "", question ="", width= 220, t = '', n1, n2, n3, r1, r2, cor, qlvl;
 var opr = [];
 
 //Set up
@@ -189,7 +189,7 @@ $(document).ready(function() {
 });
 
 //Selecting Difficulty Level
-function level(lvl) {  
+function level(lvl) {
     if (lvl==1) {
         lim = 10;
         opr = ["+", "-", "+", "-", "*"];
@@ -204,11 +204,12 @@ function level(lvl) {
     }
     $("#diff").hide();
     $("#quizbody").show();
+    qlvl = lvl;
     quiz(lvl);
 }
 
 //Generating Quiz
-function quiz(level) {
+function quiz() {
     $("#timer").css("visibility", "visible");
     $("#timer").hide();
     $("#timer").fadeIn();
@@ -222,7 +223,7 @@ function quiz(level) {
     r2 = opr[rNum(len)];
     
     //Modifying question according to levels
-    if (level==1) {
+    if (qlvl==1) {
         if (r1 == "*" || r2== "*") {
             if (n1>10)
                 n1=n1-5;
@@ -235,7 +236,7 @@ function quiz(level) {
             r2 = "-";
         }
     }
-    if (level ==2) {
+    if (qlvl ==2) {
         if (r1=="*" && r2 =="*") {
             r2 = "-";
         }
@@ -248,7 +249,7 @@ function quiz(level) {
         }
     }
 
-    if (level == 3) {
+    if (qlvl == 3) {
         if (r1!="*" && r2!="*")
             r1 = "*";
     }

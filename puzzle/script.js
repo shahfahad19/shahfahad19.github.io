@@ -9,20 +9,19 @@ var rl = [2,3,6,7,10,11,14,15];
 
 window.onresize = innit;
 function innit() {
-    W = innerWidth;
-    H = innerHeight;
-    $('body').height(H+"px");
+   W = innerWidth;
+   H = innerHeight;
+   $('body').height(H+"px");
+   $("#iol").css('top', H/2 - $("#iol").height()/2+'px');
+   $("#iol").css('left', W/2- $("#iol").width()/2+'px');
+   $("#16").css('background',c2);
+   $("table").css('margin-left', W/2- $("table").width()/2+'px');
+   $("table").css('margin-top', H/2 - $("table").height()/1.4+'px');
 }
 function setup() {
   innit();
   $('#ol').html(`<div id="iol"> <h2>Congrats :)</h2><p>You completed the puzzle in ${moves} moves. It took you ${min} minute(s) and ${sec} second(s).</p><span>Comment your score !</span><br/><button onclick="setup()"> Restart</button></div>`);
-  
   innit();
-  $("#iol").css('top', H/2 - $("#iol").height()/2+'px');
-  $("#iol").css('left', W/2- $("#iol").width()/2+'px');
-  $("#16").css('background',c2);
-  $("table").css('margin-left', W/2- $("table").width()/2+'px');
-  $("table").css('margin-top', H/2 - $("table").height()/1.4+'px');
   $('#ol').hide();
   min=0, sec=0, moves=0;
   $("td").html("");

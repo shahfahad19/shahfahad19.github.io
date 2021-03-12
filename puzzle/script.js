@@ -15,7 +15,6 @@ function innit() {
    $("#iol").css('top', H/2 - $("#iol").height()/2+'px');
    $("#iol").css('left', W/2- $("#iol").width()/2+'px');
    $("#16").css('background',c2);
-   $("table").css('margin-top', H/2 - $("table").height()/1.4+'px');
 }
 function setup() {
   innit();

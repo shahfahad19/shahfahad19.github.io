@@ -17,8 +17,7 @@ function setup() {
   innit();
   $('#ol').html(`<div id="iol"> <h2>Congrats :)</h2><p>You completed the puzzle in ${moves} moves. It took you ${min} minute(s) and ${sec} second(s).</p><span>Comment your score !</span><br/><button onclick="setup()"> Restart</button></div>`);
   $("#16").css('background',c2);
-  innit();
-  $('#ol').hide();
+  //$('#ol').hide();
   min=0, sec=0, moves=0;
   $("td").html("");
   for (var arr=[],i=0;i<15;++i)

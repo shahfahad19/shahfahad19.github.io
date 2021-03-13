@@ -12,7 +12,7 @@ function innit() {
    W = innerWidth;
    H = innerHeight;
    $('body').height(H+"px");
-   $('#ol').height(H+"px");
+   $('#ol').height("100%");
 }
 function setup() {
   innit();

@@ -12,13 +12,11 @@ function innit() {
    W = innerWidth;
    H = innerHeight;
    $('body').height(H+"px");
-   $("#iol").css('top', H/2 - $("#iol").height()/2+'px');
-   $("#iol").css('left', W/2- $("#iol").width()/2+'px');
-   $("#16").css('background',c2);
 }
 function setup() {
   innit();
   $('#ol').html(`<div id="iol"> <h2>Congrats :)</h2><p>You completed the puzzle in ${moves} moves. It took you ${min} minute(s) and ${sec} second(s).</p><span>Comment your score !</span><br/><button onclick="setup()"> Restart</button></div>`);
+  $("#16").css('background',c2);
   innit();
   $('#ol').hide();
   min=0, sec=0, moves=0;
@@ -106,10 +104,10 @@ function check() {
     if (parseInt($("#"+i).text())!=i) {
         c="false";
         break;
-        
-      }
+    }
   }
-  if (c=="true"){
+  
+  if (c=="true") {
     $('#ol').fadeIn(500);
     $("#iol p").html(`
     You completed the puzzle in ${moves} moves. It took you ${min} minute(s) and ${sec} second(s).

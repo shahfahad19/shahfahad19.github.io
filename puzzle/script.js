@@ -12,12 +12,13 @@ function innit() {
    W = innerWidth;
    H = innerHeight;
    $('body').height(H+"px");
+   $('#ol').height(H+"px");
 }
 function setup() {
   innit();
-  $('#ol').html(`<div id="iol"> <h2>Congrats :)</h2><p>You completed the puzzle in ${moves} moves. It took you ${min} minute(s) and ${sec} second(s).</p><span>Comment your score !</span><br/><button onclick="setup()"> Restart</button></div>`);
+  $('#ol').html(`<div id="iol"> <h2>Congrats :)</h2><p></p><span>Comment your score !</span><br/><button onclick="setup()"> Restart</button></div>`);
   $("#16").css('background',c2);
-  //$('#ol').hide();
+  $('#ol').hide();
   min=0, sec=0, moves=0;
   $("td").html("");
   for (var arr=[],i=0;i<15;++i)
@@ -67,7 +68,6 @@ $(function() {
         $("#"+(id-1)).html(n);
         $("#"+(id-1)).css('background',c1);
         $(this).css('background',c2);
-        
         $(this).html("");
         moves++;
         $("#moves").html(moves);
@@ -86,8 +86,8 @@ $(function() {
     if (id>=5) {
       if ($("#"+(id-4)).text()=="") {
         $("#"+(id-4)).html(n);
-        $("#"+(id-4)).css('background','rgb(255,255,255,0.1)');
-        $(this).css('background','rgb(255,255,255,0.2)');
+        $("#"+(id-4)).css('background',c1);
+        $(this).css('background',c2);
         $(this).html("");
         moves++;
         $("#moves").html(moves);

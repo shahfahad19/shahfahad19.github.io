@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Express Newspaper</title>
+  <link rel="icon" href="https://i.postimg.cc/dV4GF2xD/express.jpg">
+</head>
+<body style="margin:0px;" >
+  <div id="paper" style="width:100%;"></div>
+  <script>
+    window.onload=function() {
+      td = new Date();
+      var year = td.getFullYear();
+      var month = td.getMonth() + 1;
+      if (month<10) month = "0"+month;
+      var day  = td.getDate();
+      if (day<10) day = "0"+day;
+      txt = '<img src="https://www.express.com.pk/images/NP_PEW/'+year+month+day+"/"+year+month+day;
+      var paper = document.getElementById('paper');
+      paper.innerHTML = txt+'-NP_PEW-Front_Page_1.jpg"><br>'+txt+'-NP_PEW-Baqia_PageC005_5.jpg"><br>'+txt+'-NP_PEW-Sports_PageC008_8.jpg"><br>'+txt+'-NP_PEW-Metropolitan_PageC002_2.jpg"><br>'+txt+'-NP_PEW-NAT_INT_PageC003_3.jpg"><br>'+txt+'-NP_PEW-City_PageC004_4.jpg"><br>'+txt+'-NP_PEW-Editorial_PageC006_6.jpg"><br>'+txt+'-NP_PEW-Classified_PageC007_7.jpg"><br>';
+    }
+  </script>
+</body>
+</html>

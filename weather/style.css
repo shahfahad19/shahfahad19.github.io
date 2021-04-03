@@ -4,6 +4,7 @@
 
 body {
     background: linear-gradient(to right, #f05e23, darkorange);
+    margin: 0px;
 }
 
 input, button {

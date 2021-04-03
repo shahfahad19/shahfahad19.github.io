@@ -1,10 +1,12 @@
-body {
+* {
     font-family: 'Zilla Slab', sans-serif;
+}
+
+body {
     background: linear-gradient(to right, #f05e23, darkorange);
 }
 
 input, button {
-    font-family: 'Zilla Slab', sans-serif;
     font-weight: bold;
     font-size: 16px;
     color: white;

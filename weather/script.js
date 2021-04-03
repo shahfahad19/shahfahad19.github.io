@@ -35,7 +35,7 @@ $.getJSON(api, function(result) {
         $("#mainbody").show();
         for(i=0;i<=2;i++) {
         var date = result.forecast.forecastday[i].date;
-        var avgtemp = result.forecast.forecastday[i].day.avgtemp_c+' Â°C';
+        var avgtemp = result.forecast.forecastday[i].day.avgtemp_c+' °C';
         var humidity = result.forecast.forecastday[i].day.avghumidity+' %';
         var rain = result.forecast.forecastday[i].day.daily_chance_of_rain+' %';
         var sunrise = result.forecast.forecastday[i].astro.sunrise;

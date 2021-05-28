@@ -1,0 +1,68 @@
+<html><head>
+        <title>CSS Gradients</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style id="style-from-editor">* {
+     outline:0;
+ }
+body {
+    text-align: center ;
+    height: 100vh;
+}
+
+button {
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+code {
+    background-color: white;
+    font-size: 12px;
+}
+.code {
+    text-align: left;
+    width: 90%;
+    display: none;
+}
+h1 {
+    opacity:0.1;
+}</style><script type="text/javascript" id="script-from-editor">function color() {
+   var c = "rgb("+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+", "+Math.floor(Math.random() * 255)+")";
+   return c;
+}
+
+function setGradient() {
+    var gradient = "linear-gradient("+ Math.floor(Math.random() * 255)+"deg, "+color()+", "+ color()+")";
+    $("body").css("background", gradient);
+    $("#code").html(gradient);
+}
+
+$(function() {
+    $("#next").click(function() {
+        setGradient();
+    });
+});
+
+$(function() {
+    $("#show").click(function() {
+        $(".code").toggle(1000);
+    });
+});</script></head>
+    <body onload="setGradient()">
+        <center>
+            <button id="next">Next</button>
+            <button id="show">Code</button>
+            <br>
+            <div class="code">
+               <code>body {<br>    background: <span id="code"></span><br>}</code>
+            </div>
+        </center>
+    
+    <script src="script.js"></script>
+</body></html>

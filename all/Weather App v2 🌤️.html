@@ -1,0 +1,376 @@
+<html><head>
+        <title>Weather App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        
+    <style id="style-from-editor">@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+body {
+    font-family: 'Zilla Slab', sans-serif;
+    background: linear-gradient(90deg, rgba(245,116,54,1) 24%, rgba(238,168,38,1) 94%);
+    margin: 0px;
+}
+
+input, button {
+    font-family: 'Zilla Slab', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+#topbar, #searchbox, #more, #forecastlabel, #forecast #date, #footer {
+    background-color: #373737;
+    color: white;
+}
+.material-icons.md-48 {
+    font-size: 32px;
+}
+#topbar {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    padding: 8px;
+}
+
+#searchbox {
+    padding: 10px;
+    display: none;
+}
+
+#searchbox input {
+    height: 30px;
+    color: #373737;
+    width: 200px;
+}
+
+#searchbox button {
+    height: 36px;
+    background-color: #f05e23;
+    border: 2px solid #f05e23;
+    width: 80px;
+}
+
+#topbar #searchicon {
+    position: absolute ;
+    right: 10px;
+    top: 7px;
+}
+
+#mainbody {
+    color: white;
+    width: 85%;
+    text-align: center;
+    animation: appear 1s 1;
+}
+
+#forecast {
+    width: 85%;
+    height: 350px;
+    border: 1.5px solid white;
+    color: white;
+    animation: forecast 1s 1;
+    border-radius: 10px;
+}
+
+#city {
+    font-size: 40px;
+    text-align: left;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+#mainbody img {
+    float: right;
+}
+
+#temp {
+    float: right;
+    font-size: 25px;
+    padding-right: 2px;
+    font-weight: bold;
+}
+#cond {
+    float: left;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+#more {
+    width: 83%;
+    padding: 5px;
+    margin: 5px;
+    height: 25px;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+#more #label {
+    float: left;
+    padding-left: 5px;
+}
+
+#wind {
+    text-align: right;
+}
+
+#forecast img {
+    height: 45px;
+    width: 45px;
+    float: left;
+}
+
+#forecast #date {
+    color: white;
+    font-size: 24px;
+    padding: 5px;
+    border-radius: 6px;
+    padding-top: 0px;
+}
+
+#forecast #avgtemp {
+    float: right;
+    padding-top: 3px;
+    font-size: 23px;
+}
+
+#forecast #summary {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+#wind, #direction, #humidity, #feel, #avghumidity, #rainchance, #sunrise, #sunset, #moonrise, #moonset, #chanceofrain {
+    float: right;
+}
+
+#forecastlabel {
+    color: white;
+    padding: 5px;
+}
+
+#forecast #top {
+    height: 45px;
+    padding: 5px;
+}
+
+#footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   font-size: 18px;
+   background-color: #373737;
+   color: white;
+   text-align: center;
+   padding: 6px;
+}
+
+#loadingbox {
+    margin-top: 50%;
+}
+
+#loading {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+#loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes appear {
+    from {
+        width: 0%;
+    }
+    to {
+    
+    width: 85%;
+    }
+}
+
+@keyframes forecast {
+    from {
+        height: 0px;
+        width: 0%;
+    }
+    to {
+        height: 350px;
+        width: 85%;
+    }
+}
+</style><script type="text/javascript" id="script-from-editor">var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var i= 0;
+var d ='', day='';
+var url = "https://api.weatherapi.com/v1/forecast.json";
+var key = "8a1362221e524488b3e112953200305";
+
+$(document).ready(function(){
+    weather('Islamabad');
+    $("#mainbody").hide();
+    $("#forecasttable").hide();
+    $("#loadingbox").show();
+});
+
+function weather(city) {
+var api = url+'?key='+key+'&q='+city+'&days=3';
+$.getJSON(api, function(result) {
+        $("#city").html(result.location.name);
+        $("#mainbody img").attr("src", 'https:'+result.current.condition.icon);
+        $("#temp").html(result.current.temp_c+' °C');
+        $("#chanceofrain").html(result.forecast.forecastday[0].day.daily_chance_of_rain+' %');
+        $("#cond").html(result.current.condition.text);
+        $("#humidity").html(result.current.humidity+' %');
+        $("#feel").html(result.current.feelslike_c+' °C');
+        $("#wind").html(result.current.wind_kph+' km/h');
+        $("#direction").html(result.current.wind_dir);
+        $("#update").html(result.current.last_updated);
+        $("#mainbody").show();
+        for(i=0;i<=2;i++) {
+        var date = result.forecast.forecastday[i].date;
+        var avgtemp = result.forecast.forecastday[i].day.avgtemp_c+' °C';
+        var humidity = result.forecast.forecastday[i].day.avghumidity+' %';
+        var rain = result.forecast.forecastday[i].day.daily_chance_of_rain+' %';
+        var sunrise = result.forecast.forecastday[i].astro.sunrise;
+        var sunset = result.forecast.forecastday[i].astro.sunset;
+        var moonrise = result.forecast.forecastday[i].astro.moonrise;
+        var moonset = result.forecast.forecastday[i].astro.moonset;
+        var summary = result.forecast.forecastday[i].day.condition.text;
+        var icon = result.forecast.forecastday[i].day.condition.icon;
+        icon = "https:" + icon;
+        d = new Date(date);
+        day = days[d.getDay()];
+        $("#forecastlabel").html('3 Day Forecast for ' + result.location.name);
+        $("#forecastlabel").show();
+        $("#forecasttable").append(`
+        <div id="forecast">
+            <div id="top">
+            <span id="date">${day}</span>
+            <img src="${icon}"><span id="avgtemp">${avgtemp}</span>
+            </div>
+            <br />
+            <span id="summary">${summary}</span>
+            <br/>
+            <div id="more">
+            <span id="label">Chance of Rain: </span><span id="rainchance">${rain}</span>
+            </div>
+            <div id="more">
+            <span id="label">Humidity: </span><span id="avghumidity">${humidity}</span>
+            </div>
+            <div id="more">
+            <span id="label">Sunrise: </span><span id="sunrise">${sunrise}</span>
+            </div>
+            <div id="more">
+            <span id="label">Sunset: </span><span id="sunset">${sunset}</span>
+            </div>
+            <div id="more">
+            <span id="label">Moonrise: </span><span id="moonrise">${moonrise}</span>
+            </div>
+            <div id="more">
+            <span id="label">Moonset: </span><span id="moonset">${moonset}</span>
+            </div>
+        </div>
+        <br>
+        <br>
+        `);
+      }
+        $("#loadingbox").hide();
+        $("#mainbody").show();
+        $("#forecasttable").show();
+});
+}
+
+$(function() {
+    $("#topbar #searchicon").click(function() {
+        $("#searchbox").toggle(500);
+    });
+});
+
+$(document).on("keypress", "input", function(e) {
+    if(e.which == 13) {
+        $("#searchbox").toggle(500);
+        weather($("#searchbox input").val());
+        $("#searchbox input").val('');
+        $("#forecasttable").html(`<h2 id="forecastlabel"></h2>`);
+        $("#mainbody").hide();
+        $("#forecasttable").hide();
+        $("#loadingbox").show();
+    }
+});
+
+$(function() {
+    $("#searchbox button").click(function() {
+        $("#searchbox").toggle(500);
+        weather($("#searchbox input").val());
+        $("#searchbox input").val('');
+        $("#forecasttable").html(`<h2 id="forecastlabel"></h2>`);
+        $("#mainbody").hide();
+        $("#forecasttable").hide();
+        $("#loadingbox").show();
+    });
+});</script></head>
+    <body>
+    <center>
+    <div id="topbar">WeatherAPP<span id="searchicon" class="material-icons md-48">
+search
+</span></div>
+    
+    <div id="searchbox">
+        <input type="text" id="search" placeholder="Enter City Name">
+        <button>Search</button>
+    </div>
+                    <div id="loadingbox">
+                        <div id="loading"></div>
+        </div>
+        <div id="mainbody">
+            <img>
+            <span id="city"></span>
+            <br><br><br><br>
+            <span id="temp"></span>
+            <span id="cond">&nbsp;</span>
+            <br><br><br>
+            <center>
+            <div id="more">
+            <span id="label">Chance of Rain: </span><span id="chanceofrain">&nbsp;</span>
+            </div>
+            <div id="more">
+            <span id="label">Feel Like: </span><span id="feel">&nbsp;</span>
+            </div>
+            
+            <div id="more">
+            <span id="label">Humidity: </span><span id="humidity">&nbsp;</span>
+            </div>
+            <div id="more">
+            <span id="label">Wind: </span><span id="wind">&nbsp;</span>
+            </div>
+            <div id="more">
+            <span id="label">Direction: </span><span id="direction">&nbsp;</span>
+            </div>
+            <span>Last Updated: </span><span id="update">&nbsp;</span>
+            </center>
+        </div>
+        <br>
+        <div id="forecasttable">
+            <h2 id="forecastlabel"></h2>
+        </div>
+        </center>
+        <div id="footer">
+            Made By Shah Fahad
+        </div>
+    
+</body></html>

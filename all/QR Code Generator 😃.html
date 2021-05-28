@@ -1,0 +1,120 @@
+<html><head>
+        <title>QR Code Generator</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style id="style-from-editor">@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    outline: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    user-select: none;
+}
+
+html {
+    width:100vw;
+}
+
+body {
+    background:linear-gradient(to right, #2d1c45, #442b6a);
+    width:95vw;
+    text-align: center;
+}
+
+input {
+    background-color: transparent;
+    border: 1.5px solid white;
+    height: 30px;
+    width: 250px;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 40px;
+    margin: 10px;
+    text-align: center;
+}
+
+button {
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: white;
+    padding: 5px;
+    margin: 10px;
+    width: 175px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color:#2d1c45;
+}
+
+img {
+    border-radius: 10px;
+}
+
+p {
+    font-size: 16px;
+}
+div {
+    margin-top: 40px;
+    display: inline-block;
+}
+
+div div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading 1.2s linear infinite;
+    display: none;
+    margin-bottom: 162px;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style><script type="text/javascript" id="script-from-editor">var api = "https://chart.googleapis.com/chart?cht=qr&chs=225x225&chld=L|5&chl=", text="Sololearn";
+$(function(){
+    $(document).ready(function() {
+       $("input").attr("type","text");
+       $("input").attr("placeholder","Text/URL");
+       QR();
+    });
+    
+    $("button").click(function() {
+        text = $("input").val();
+        if (text!="")
+            QR();
+        else
+            alert("Type something 🙄");
+    });
+    
+    $('img').on('load', function () {
+        $("div div").hide();
+        $("p").html(text);
+        $("input").val("");
+        $("img").fadeIn(1000);
+        $("button").prop("disabled", false);
+    });
+});
+
+function QR() {
+    $("img").hide();
+    $("p").html("");
+    $("div div").show();
+    $("img").attr("src",api+text);
+    $("button").html("Generate");
+    $("button").prop("disabled", true);
+}</script></head>
+    <body>
+        <h2>QR Generator</h2>
+        <div>
+            <img><p></p>
+            <div></div>
+        </div>
+        <br><input><br>
+        <button>Generate</button>
+    
+</body></html>

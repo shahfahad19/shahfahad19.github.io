@@ -1,0 +1,123 @@
+<html><head>
+        <title>Date and Time</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style id="style-from-editor">@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+body {
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+#clock {
+    font-size: 35px;
+    background:linear-gradient(to left, red, orange);
+    width: 220px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px grey;
+}
+#date {
+    font-size: 80px;
+}
+#day, #month{
+    font-size: 23px;
+}
+.c1, .c2, .c3, .date {
+    width: 150px;
+    height: 150px;
+    position: absolute ;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0; right: 0;
+    text-align: center;
+}
+.c1 {
+    background-color: #EBEB00;
+    transform: rotate(10deg);
+}
+.c2 {
+    background-color: #F08080;
+    transform: rotate(-10deg);
+}
+.c3 {
+    background-color: #00AAFF;
+}</style><script type="text/javascript" id="script-from-editor">months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+days  = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+var m =0, h= 0, ap=0;
+function timedate() {
+    td = new Date();
+    
+    /*setting date*/
+    year  = td.getFullYear();
+    month = td.getMonth();
+    date  = td.getDate();
+    day   = td.getDay();
+    
+    /*setting time*/
+    hrs   = td.getHours();
+    min   = td.getMinutes();
+    sec   = td.getSeconds();
+    
+    /*for am and pm*/
+    conv  = ' AM';
+    if (hrs>11) {
+        conv = ' PM';
+        if (hrs>12) {
+            hrs = hrs - 12;
+        }
+    }
+    else if (hrs==0) {
+        hrs = 12;
+    }
+    
+    /*To Make it look better*/
+    if (hrs<10) {
+        hrs = '0'+hrs;
+    }
+    if (min<10) {
+        min = '0'+min;
+    }
+    if (sec<10) {
+        sec = '0'+sec;
+    }
+    if(min!=$("#min").text()){m=1} else{m=0}
+    if(hrs!=$("#hrs").text()){h=1} else{h=0}
+    if(conv!=$("#ap").text()){ap=1} else{ap=0}
+    $("#hrs").html(hrs);
+    $("#min").html(min);
+    $("#sec").html(sec);
+    $("#ap").html(conv);
+    
+    $("#day").html(days[day]);
+    $("#date").html(date);
+    $("#month").html(months[month])
+    $("#sec").hide();
+    $("#sec").fadeIn(400);
+    if (m==1) {
+        $("#min").hide();
+        $("#min").fadeIn(400);
+    }
+    if (h==1) {
+        $("#hrs").hide();
+        $("#hrs").fadeIn(400);
+    }
+    if (ap==1) {
+        $("#ap").hide();
+        $("#ap").fadeIn(400);
+    }
+    /*to update clock*/
+    updat = setTimeout(timedate, 1000);
+};
+</script></head>
+    <body onload="timedate()">
+    <center>
+        <h2 style="color:grey;">Date and Time</h2>
+        <div id="clock"><span id="hrs"></span>:<span id="min"></span>:<span id="sec"></span><span id="ap"></span></div>
+        <br>
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+        <div class="date"><span id="day"></span><br><span id="date"></span><br><span id="month"></span></div>
+        
+    </center>
+    
+</body></html>

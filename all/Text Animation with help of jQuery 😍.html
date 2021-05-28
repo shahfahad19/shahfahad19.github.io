@@ -1,0 +1,73 @@
+<html><head>
+        <title>Text Animation</title>
+        <meta name="viewport" content="width=device, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style id="style-from-editor">@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
+
+body {
+    background-color: #000063;
+    color: white;
+}
+
+div {
+    padding: 30px;
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Rancho', cursive;
+    text-transform: capitalize;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes anim {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        font-size: 50px;
+    }
+    100% {
+        opacity: 0;
+        font-size: 65px;
+}</style><script type="text/javascript" id="script-from-editor">var i = 0, text ="";
+var txt = prompt("Enter a sentence");
+try {
+    var n=txt.length;
+}
+catch {
+    txt = "A quick brown fox jumps over the lazy dog";
+}
+function ready() {
+    var conv = function (str) {
+        return str.trim().split(" ");
+    };
+    text = conv(txt);
+    var t = text.length + 0.110;
+    $("div span").css("animation", "anim 0.8s "+t);
+    start();
+}
+
+function start() {
+    $('div span').html(text[i]);
+    i++;
+    if (i != text.length){
+        setTimeout("start()", 800);
+    }
+    else {
+        setTimeout(function () {
+            $("div").css("font-size", "65px");
+            $('div span').html(txt);
+        }, 800);
+    }
+}</script></head>
+    <body onload="ready()">
+        <div id="txt"><span></span></div>
+    
+    <script src="script.js"></script>
+</body></html>

@@ -1,0 +1,60 @@
+<html><head>
+        <title>Random Quotes</title>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style id="style-from-editor">body {
+    font-family:'Righteous', cursive;
+    background: #2F80ED;
+    color: white;
+}
+#qbody {
+    font-size: 18px;
+    width:90%;
+    padding: 15px;
+}
+#stars {
+    color: yellow;
+}
+#author {
+    text-align: right;
+    font-size: 15px;
+}
+button {
+    font-family:'Righteous', cursive;
+    width: 100px;
+    height: 25px;
+    background-color: #2F80ED;
+    color: white;
+    border:1px solid white;
+    font-weight:bold;
+    font-size: 16px;
+}</style><script type="text/javascript" id="script-from-editor">function quotes() {
+var count = prompt('How many quotes do you want?');
+if (count>0) {
+  for (var i=1;i<=count;i++) {
+    $.getJSON('https://freequote.herokuapp.com',
+    function(data) {
+        $("#quote").append(` <div id="qbody">
+        <p>${data.quote}</p>
+        <p id="author">— ${data.author}</p>
+        </div>
+        <p id="stars">★★★★★</p>`);
+    });
+  }
+}
+else {
+    $("#try").html(`<p>You have to enter a number</p><button onclick="tryagain()">Try Again</button>`);
+     }
+}
+function tryagain() {
+    $("#try").html('');
+    quotes();
+}</script></head>
+    <body onload="quotes()">
+    <center>
+    <h2>Random Quote Generator</h2>
+    <div id="try"></div>
+    <div id="quote"></div>
+    </center>
+      
+</body></html>

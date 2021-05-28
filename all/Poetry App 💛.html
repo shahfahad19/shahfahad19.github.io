@@ -1,0 +1,188 @@
+<html><head>
+        <title>Poetry App</title>
+        <meta name="viewport" content="width=device, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style id="style-from-editor">@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital@1&display=swap%27');
+
+* {
+    outline: 0;
+}
+body {
+    background-color: #42A5F5;
+    font-family: 'Alegreya sans', sans-serif;
+}
+
+#body {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+}
+
+button, select {
+    font-family: 'Alegreya sans', sans-serif;
+}
+#ldr {
+    height: 20px;
+}
+
+
+select {
+    width: 200px;
+    max-width: 200px;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    border : 2px solid white;
+    font-weight: bold;
+    font-size: 18px;
+    margin:5px 5px;
+}
+
+button {
+    background-color: white;
+    color: #42A5F5;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    margin:5px 5px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+#poem {
+    color: white;
+    font-size: 16px;
+}
+
+#poem {
+    display: none;
+    background: url('https://iili.io/2SgZFf.md.jpg');
+    background-size: 100% 600px;
+    height: 600px;
+    overflow: auto;
+    margin: 8px;
+    border: 4px double white;
+    padding: 10px;
+    color: black;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.poem-selector {
+    display: none;
+}
+.poet-selector {
+    display: none;
+}
+h2 {
+    color: white;
+    text-align: center;
+}
+#back {
+    display: none;
+}</style><script type="text/javascript" id="script-from-editor">var i = 0;
+function ready() {
+    var api = "https://poetrydb.org/author";
+$.getJSON(api, function(result) {
+     for (var i=0;i<=result.authors.length-1;i++)
+     {
+       $("#list").append(`<option value="${result.authors[i]}">${result.authors[i]}</option>`);
+     }
+     $(".poet-selector").show();
+     $("#ldr").hide();
+    });
+}
+
+function poems() {
+    if($("#list").val()!=0) {
+        $(".poem-selector h3").html("Select any of "+$('#list').val()+"'s poem");
+        $('#back').show();
+        $(".poet-selector").hide();
+        $("#ldr").show();
+        var api = "https://poetrydb.org/author/"+$("#list").val()+"/title";
+        $.getJSON(api, function(result) {
+        for(var j=0;j<=result.length-1;j++) {
+        $("#list2").append(`<option value="${result[j].title}">${result[j].title}</option>`);
+        }
+        $("#ldr").hide();
+        $(".poem-selector").show();
+        });
+        i=1;
+    }
+    else {
+        alert('Please select poet name');
+    }
+}
+
+function poem() {
+    if($("#list2").val()!=0) {
+    $(".poem-selector").hide();
+    $("#ldr").show();
+    var api = "https://poetrydb.org/author,title/" +$("#list").val() +";"+$("#list2").val();
+$.getJSON(api, function(result) {
+    $("#poem").html(`<br /><center style="background-color:white;opacity:0.8;"><span style="font-size:22px;font-weight:bold;">${$("#list2").val()}</span><br /> by <span style="font-style:italic;">${$("#list").val()}</span></center><br /><hr/><br />`);
+    for (var k=0;k<=result[0].lines.length-1;k++)
+    {
+        $("#poem").append(result[0].lines[k]+"<br />");
+    }
+    $("#body").hide();
+    $("#ldr").hide();
+    $("#poem").toggle(1000);
+    });
+    i=2;
+    }
+    else {
+        alert('Please select poem name');
+    }
+}
+
+function back() {
+    if(i==1) {
+        $(".poet-selector").show();
+        $(".poem-selector").hide();
+        i=0;
+        $("#back").hide();
+        $("#list2").html(`<option value="0">Select Poem</option>`);
+    }
+    
+    else if(i==2) {
+        $("#poem").hide();
+        $("#body").show();
+        $(".poem-selector").show();
+        i=1;
+    }
+}</script></head>
+    <body onload="ready()">
+    <h2>Poetry App Using Api</h2>
+    <div id="body">
+    <center>
+    <img id="ldr" src="https://s8.gifyu.com/images/ajax-loader.gif">
+        <div class="poet-selector">
+        <h3 style="color:white;"></h3>
+            <select id="list">
+                <option value="0">Select Poet</option>
+            </select>
+            <br>
+            <button onclick="poems()">Done</button>
+        </div>
+             
+        <div class="poem-selector">
+        
+        <h3 style="color:white;"> </h3>
+            <select id="list2">
+                <option value="0">Select Poem</option>
+            </select>
+            
+            <br>
+            <button onclick="poem()">Done</button>
+        </div>
+        </center>
+        </div>
+        <div id="poem"></div>
+        <center><button id="back" onclick="back()">Back</button></center>
+    
+    <script src="script.js"></script>
+</body></html>

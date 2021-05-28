@@ -1,0 +1,173 @@
+<html><head>
+        <title>Simple Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&amp;display=swap" rel="stylesheet">
+    <style id="style-from-editor">body {
+    background-color:#D7CCC8;
+}
+button {
+    margin: 5px;
+    height: 45px;
+    width: 64px;
+    font-size: 23px;
+    font-weight:bold;
+    background-color: #1E88E5;
+    color: white;
+    border: none;
+    box-shadow: 0 0 5px grey;
+    border-radius: 8px;
+    outline:0;
+    outline-color:transparent ;
+}
+
+button:active {
+    height: 43px;
+    box-shadow: inset 2px 2px 1.5px grey;
+    outline:0;
+    outline-color:transparent ;
+}
+
+#display {
+    background-color: #69F0AE;
+    font-size:23px;
+    text-align: right;
+    font-weight: bold;
+    color: #1B5E20;
+    margin: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    font-family: 'Orbitron', sans-serif;
+    height:35px;
+    overflow:auto;
+}
+
+#logo {
+    font-size: 18px;
+    color: grey;
+    font-weight: bold;
+    padding: 10px;
+}
+#calc {
+    background-color: #E3F2FD;
+    width: 340px;
+    border: none;
+    border-radius: 15px;
+}
+
+button:hover {
+    outline:0;
+    outline-color:transparent;
+}</style><script type="text/javascript" id="script-from-editor">var i = 0, oldans=0;
+function input(val) {
+    
+    //To delete a number
+    if (val=='c') {
+        txt = $("#display").text();
+        $("#display").html(txt.substring(0, txt.length-1));
+    }
+    
+    //To find answer
+    else if (val=='=') {
+        try {
+            var ans = eval($("#display").text());
+            if (ans=="Infinity") {
+                $("#display").html('= &#8734;');
+            }
+            else if (isNaN(ans)) {
+                $("#display").html('Math Error');
+            }
+            else {
+                $("#display").html('= '+ans);
+            }
+            oldans=ans;
+            i=1;
+        }
+        catch(err) {
+            if (i==1) {
+                $("#display").html(oldans);
+                i = 0;
+            }
+            else {
+                $("#display").html("Syntax Error");
+                i = 1;
+            }
+        }
+        
+ 
+ }   //To clear all
+    else if (val=='ac') {
+        $("#display").html('');
+    }
+    
+    //Number Input
+    else {
+    
+        if (i==0) {
+            var txt = $("#display").text();
+            var last = txt.slice(-1);
+            if (val=='.') {
+                if (last != '.') {
+                    $("#display").html(txt+val);
+                }
+            }
+            else if (val=='+' || val=='-' || val=='*' || val=='/') {
+                if (last=='+' ||last=='-' || last=='*' || last=='/' || last=='.') {}
+                else
+                $("#display").html($("#display").text()+val);
+            }
+            else {
+                $("#display").html($("#display").text()+val)
+            }
+        }
+        
+        else {
+            $("#display").html(val);
+            i = 0;
+        }
+    }
+}
+</script></head>
+    <body>
+        <center>
+        <div id="logo">Simple Calculator</div>
+        <br>
+        <br>
+        <div id="calc">
+        <br>
+        <div id="display"></div>
+        <div id="buttons">
+            <button style="background-color:blue;" onclick="input('(')">(</button>
+            <button style="background-color:blue;" onclick="input(')')">)</button>
+            <button onclick="input('c')">Del</button>
+            <button style="background-color:green;" onclick="input('ac')">AC</button>
+            <br>
+            <button onclick="input(7)">7</button>
+            <button onclick="input(8)">8</button>
+            <button onclick="input(9)">9</button>
+            <button style="background-color:red;" onclick="input('+')">+</button>
+            
+            <br>
+            <button onclick="input(4)">4</button>
+            <button onclick="input(5)">5</button>
+            <button onclick="input(6)">6</button>
+            <button style="background-color:red;" onclick="input('-')">-</button>
+            
+            <br>
+            <button onclick="input(1)">1</button>
+            <button onclick="input(2)">2</button>
+            <button onclick="input(3)">3</button>
+            <button style="background-color:red;" onclick="input('*')">x</button>
+            <br>
+            <button onclick="input('.')">.</button>
+            <button onclick="input('0')">0</button>
+            <button style="background-color:brown;" onclick="input('=')">=</button>
+            <button style="background-color:red;" onclick="input('/')">/</button>
+        </div>
+        <br>
+        </div>
+        </center>
+    
+    <script src="script.js"></script>
+</body></html>

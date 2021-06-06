@@ -1,6 +1,6 @@
-       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Staatliches;&display=swap');
 *{
-font-family:'Poppins', sans-serif;
+font-family:'Staatliches', cursive;
 }
 body {
        background: linear-gradient(to right, #56CCF2, #2F80ED);

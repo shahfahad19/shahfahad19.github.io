@@ -1,6 +1,6 @@
-       @import url('https://fonts.googleapis.com/css2?family=Staatliches;&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Staatliches&display=swap');
 *{
-font-family:'Staatliches', cursive;
+font-family:'Bree Serif', serif;
 }
 body {
        background: linear-gradient(to right, #56CCF2, #2F80ED);

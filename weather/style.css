@@ -1,9 +1,8 @@
 * {
     font-family: 'Zilla Slab', sans-serif;
 }
-
 body {
-    background: linear-gradient(to right, #f05e23, darkorange);
+    background: linear-gradient(90deg, rgba(245,116,54,1) 24%, rgba(238,168,38,1) 94%);
     margin: 0px;
 }
 
@@ -17,7 +16,9 @@ input, button {
     background-color: #373737;
     color: white;
 }
-
+.material-icons.md-48 {
+    font-size: 32px;
+}
 #topbar {
     font-size: 25px;
     font-weight: bold;
@@ -37,14 +38,16 @@ input, button {
 }
 
 #searchbox button {
-    height: 31px;
+    height: 36px;
     background-color: #f05e23;
     border: 2px solid #f05e23;
     width: 80px;
 }
 
 #topbar #searchicon {
-    float: right;
+    position: absolute ;
+    right: 10px;
+    top: 7px;
 }
 
 #mainbody {
@@ -90,7 +93,7 @@ input, button {
     width: 83%;
     padding: 5px;
     margin: 5px;
-    height: 30px;
+    height: 25px;
     border-radius: 8px;
     font-size: 17px;
 }

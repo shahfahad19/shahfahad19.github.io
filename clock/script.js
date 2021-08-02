@@ -8,6 +8,7 @@ window.onload = function() {
         <div class="date"></div>
       </div>
     `)
+    $(".clock").css("height", $(".clock").css("width"));
     for (var i=1;i<=12;i++) {
         
         if (i==12 || i==3 || i==6 || i==9) {

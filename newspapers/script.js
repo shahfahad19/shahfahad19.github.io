@@ -5,10 +5,8 @@ function getList() {
    var savedData = JSON.parse(localStorage.getItem('data'));
   
   if (savedData != undefined ) {
-      
       isLoaded = 1;
       getNewspapers(savedData);
-      
   }
   fetch('https://api.codetabs.com/v1/proxy?quest=sfahad1.000webhostapp.com/php/data.json')
 .then(res => res.json())
@@ -24,8 +22,6 @@ function getList() {
  })
 .catch(err => { throw err });
 } 
-
-
 
 function getNewspapers(data) {
     var getData = data;
@@ -45,7 +41,6 @@ function getNewspapers(data) {
  menu = menu.replace("Jinnah", "جناح");
  menu = menu.replace("Ummat", "امت");
  menu = menu.replace("Juraat", "جرات");
- 
  $(".box").html(menu);
 }
 function citiesList(url) {
@@ -92,11 +87,9 @@ function goBack() {
         $(".box").html(cities);
         back = 1;
     }
-   
    else if (back==1) {
        $(".box").html(menu);
        back = 0;
        $("#back").css("display", "none");
    }
-    
 } 

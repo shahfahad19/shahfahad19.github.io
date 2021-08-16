@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Urdu';
-    src: url('https://rekhtastaticcdn.azureedge.net/fonts/NotoNastaliqUrdu-Regular.ttf');
+    src: url('https://dailypakistan.com.pk/assets/dailypakistan/css/nafees-nastaleeq-webfont.ttf');
     format('truetype');
 } 
 
 * {
      user-select:none;
-     font-family: 'Bitter', sans-serif;
+     font-family: 'Patrick Hand SC', sans-serif;
 }
 
 body {
@@ -19,38 +19,38 @@ video {
     width:100%;
 }
 button {
+    border: 1px solid PowderBlue;
     background-color: RoyalBlue;
-    border: 2px solid RoyalBlue;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     color: white;
 }
-button, #logo {
+button, #logo, #loadingbox{
     font-family: "Urdu";
 }
-
 .box {
     width: 100vw;
     text-align: center;
     overflow-y: scroll;
-    height: 85vh;
+    height: 89vh;
     display: grid;
     grid-template-columns: repeat(2, 150px);
-    grid-template-rows: repeat(6, 80px);
+    grid-template-rows: repeat(7, 80px);
     grid-column-gap: 3px;
     grid-row-gap: 3px;
     justify-content: center;
 }
 
 .box button {
-    font-size: 17px;
-    padding: 8px;
+    font-size: 20px;
+    padding: 5px;
     display: inline-block;
     margin: 10px;
 }
 
 img {
     width:100vw;
+    margin-bottom: 5px;
 }
 
 #title {
@@ -60,20 +60,21 @@ img {
     color: white;
 }
 
-.box button:hover, .box button:active {
-    background-color: white;
-    color: RoyalBlue;
+#dlmode {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
 .back{
-    font-size:16px;
+    font-size:18px;
     border: none;
     border-radius: 4px;
     color: white;
     z-index: 2;
     background-color:transparent ;
     position: absolute;
-    top: -16px;
+    top: -14px;
     left: 15px;
     
 }
@@ -94,7 +95,7 @@ img {
     display: inline-block;
     text-align: center;
     font-size: 20px;
-    
+    padding-bottom: 2px;
 }
 
 #credits {
@@ -104,8 +105,43 @@ img {
     text-align: center;
     background-color: RoyalBlue;
     color: white;
+    font-size : 20px;
 }
 
 #credits div {
-    padding: 10px;
+    padding: 8px;
+}
+
+#loadingbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 22px;
+}
+
+#loading {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+#loading:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: RoyalBlue transparent Royalblue transparent;
+    animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

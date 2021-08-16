@@ -4,9 +4,9 @@ getList();
 $("#back").css("display", "none");
 }) ;
 function getList() {
-	if (dl==undefined) {
-   dl="light" ;
-   $("#dlicon").html("dark_mode");
+   if (dl==undefined) {
+     dl="light" ;
+     $("#dlicon").html("dark_mode");
   }
   if (dl=="dark") {
        $("body").css("background-color", "#373737");
@@ -231,14 +231,20 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
  }
  
  menu = replace(menu);
- $("#loading").hide();
+var cUrl = window.location.href;
+if (cUrl.includes("shahfahad19.github.io") && $("#credits").text().includes("Shah Fahad" )) {
+$("#loading").hide();
  $(".box").html(menu);
  $("#box").hide();
   $("#box").fadeIn(800);
  buttonColor();
+} 
+ else {
+window.location.replace("http://shahfahad19.github.io/newspapers");
+} 
    
  
-} 
+}
 
 function citiesList(url) {
     cities = '<button style="grid-column: 1 / span 2; height:55px;box-shadow:0px 0px 5px grey"> ' +res.newspapers[url].name+'</button>';

@@ -295,6 +295,7 @@ function newspaper(s,v) {
 }
 
 function replace(content) {
+/*
 	content =content.replace("Mashriq Magazine", " مشرق میگزین"); 
 	content =content.replace("Lahore", "لاہور");
 content =content.replace("Peshawar", "پشاور");
@@ -322,6 +323,7 @@ content =content.replace("Jasarat", "روزنامہ جسارت");
 content =content.replace("Jinnah", "روزنامہ جناح");
 content =content.replace("Ummat", "روزنامہ امت");
 content =content.replace("Juraat", "روزنامہ جرات");
+*/
 return content;
 } 
 function goBack() {

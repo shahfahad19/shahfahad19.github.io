@@ -8,6 +8,13 @@
   "description": "Daily updated newspapers",
   "theme_color": "#4169e1",
   "background_color": "none",
+  "prefer_related_applications": true,
+  "related_applications": [
+  {
+    "platform": "play",
+    "id": "com.pakpapers"
+  }
+]
   "icons": [
     {
       "src": "images/71x71.png",

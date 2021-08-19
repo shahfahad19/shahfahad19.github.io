@@ -10,13 +10,17 @@
         <meta property="og:description" content="Daily Updated Newspapers">
         <meta property="og:image" content="./icon-512x512.png">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="manifest" href="./manifest.webmanifest">
+        <link rel="manifest" href="manifest.json" />
         <link rel="icon" href="./icon-192x192.png" type="image/png" sizes="192x192">
         <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&amp;display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <script src="obfuscated.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall@latest/dist/pwa-install.min.js"></script>
+        <script type="module">
+   import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   const el = document.createElement('pwa-update');
+   document.body.appendChild(el);
+</script>
 </head>
     <body>
     <div id="title">

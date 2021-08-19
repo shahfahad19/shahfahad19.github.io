@@ -2,7 +2,6 @@ var back=0, menu, cities, res, dl=localStorage.getItem("dlmode");
 $( document ).ready(function() {
 getList();
 $("#back").css("display", "none");
-
 }) ;
 function getList() {
    if (dl==undefined) {

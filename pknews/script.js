@@ -2,6 +2,8 @@ var back=0, menu, cities, res, dl=localStorage.getItem("dlmode");
 $( document ).ready(function() {
 getList();
 $("#back").css("display", "none");
+let deferredPrompt;
+btnAdd.style.display = 'none';
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();

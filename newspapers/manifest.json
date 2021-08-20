@@ -2,18 +2,12 @@
   "theme_color": "none",
   "background_color": "none",
   "display": "fullscreen",
-  "scope": "",
+  "scope": "/",
   "start_url": "https://shahfahad19.github.io/newspapers",
   "name": "Pakistani Newspapers (Coded By Shah Fahad) ",
   "short_name": "Pakistani Newspapers",
   "description": "Daily Urdu Newspapers! ",
   "icons": [
-    {
-      "src": "images/71x71.png", 
-      "type": "image/png",
-      "sizes": "71x71",
-      "purpose": "any"
-    },
     {
       "src": "images/89x89.png",
       "type": "image/png",
@@ -120,12 +114,6 @@
       "src": "images/620x620.png",
       "type": "image/png",
       "sizes": "620x620",
-      "purpose": "any"
-    },
-    {
-      "src": "images/1240x1240.png",
-      "type": "image/png",
-      "sizes": "1240x1240",
       "purpose": "any"
     },
     {

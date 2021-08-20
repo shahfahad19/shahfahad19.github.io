@@ -1,6 +1,6 @@
 {
-  "theme_color": "none",
-  "background_color": "none",
+  "theme_color": "#4169e1",
+  "background_color": "#ffffff",
   "display": "fullscreen",
   "scope": "/",
   "start_url": "https://shahfahad19.github.io/newspapers/",

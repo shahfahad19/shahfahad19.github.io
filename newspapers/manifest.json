@@ -9,7 +9,7 @@
   "description": "Daily Urdu Newspapers! ",
   "icons": [
     {
-      "src": "images/71x71.png";
+      "src": "images/71x71.png", 
       "type": "image/png",
       "sizes": "71x71",
       "purpose": "any"

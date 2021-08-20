@@ -1,11 +1,14 @@
 var back=0, menu, cities, res, dl=localStorage.getItem("dlmode");
 window.onload = () => {
-  'use strict';
-
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-             .register('./sw.js');
-  }
+  navigator.serviceWorker.register('/serviceWorker.js')
+  .then(function(registration) {
+    console.log('Registration successful, scope is:', registration.scope);
+  })
+  .catch(function(error) {
+    console.log('Service worker registration failed, error:', error);
+  });
+}
 }
 $( document ).ready(function() {
 getList();

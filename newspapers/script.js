@@ -1,7 +1,7 @@
 var back=0, menu, cities, res, dl=localStorage.getItem("dlmode");
 window.onload = () => {
   if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceWorker.js')
+  navigator.serviceWorker.register('serviceWorker.js')
   .then(function(registration) {
     console.log('Registration successful, scope is:', registration.scope);
   })

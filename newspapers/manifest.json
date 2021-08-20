@@ -174,7 +174,7 @@
       "src": "images/200x200.png",
       "type": "image/png",
       "sizes": "200x200",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "images/620x300.png",

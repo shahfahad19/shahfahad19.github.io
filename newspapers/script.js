@@ -1,4 +1,12 @@
 var back=0, menu, cities, res, dl=localStorage.getItem("dlmode");
+window.onload = () => {
+  'use strict';
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('./sw.js');
+  }
+}
 $( document ).ready(function() {
 getList();
 $("#back").css("display", "none");

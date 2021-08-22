@@ -6,18 +6,20 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script>
             var tries=0, tp;
-var url = new URL(window.location);
-var c = url.searchParams.get("c");
-function getSource() {
-    getLink(0,c);
-}
-function getLink(p, station) {
-    $.ajax({
-        url: "https://api.codetabs.com/v1/proxy?quest=www.roznama92news.com/efrontend/web/index.php/index2?station_id="+station+"&page_id="+p,
-        success: function(data) {
-         var search = 'src="/backend/web/uploads/epaper';
-         var re = new RegExp('((\\S+[\\b\\s]?)' + search + '([\\b\\s]?\\S+))', 'i'),
-         matches = data.match(re);
+            var url = new URL(window.location);
+            var c = url.searchParams.get("c");
+            function getSource() {
+              getLink(0,c);
+              if (c==undefined)
+              $('center').html('City Not Found');
+            }
+            function getLink(p, station) {
+              $.ajax({
+            url: "https://api.codetabs.com/v1/proxy?quest=www.roznama92news.com/efrontend/web/index.php/index2?station_id="+station+"&page_id="+p,
+            success: function(data) {
+             var search = 'src="/backend/web/uploads/epaper';
+             var re = new RegExp('((\\S+[\\b\\s]?)' + search + '([\\b\\s]?\\S+))', 'i'),
+             matches = data.match(re);
          
          /* When Page is Found */
          if (matches) {
@@ -35,7 +37,10 @@ function getLink(p, station) {
              
              /* Display Image */
              $("div").append('<img src="'+link+'">');
-        }
+             if (p==10) {
+               $('center').hide();
+             }
+             }
         
         /*When Page is Not Found so it will search for common Page */
         else {
@@ -58,5 +63,6 @@ function getLink(p, station) {
     </head>
     <body onload="getSource()">
         <div></div>
+        <center>Loading...</center>
     </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            var tries=0, tp;
+var url = new URL(window.location);
+var c = url.searchParams.get("c");
+function getSource() {
+    getLink(0,c);
+}
+function getLink(p, station) {
+    $.ajax({
+        url: "https://api.codetabs.com/v1/proxy?quest=www.roznama92news.com/efrontend/web/index.php/index2?station_id="+station+"&page_id="+p,
+        success: function(data) {
+         var search = 'src="/backend/web/uploads/epaper';
+         var re = new RegExp('((\\S+[\\b\\s]?)' + search + '([\\b\\s]?\\S+))', 'i'),
+         matches = data.match(re);
+         
+         /* When Page is Found */
+         if (matches) {
+             var words = data.match(re)[0].split(/\s+/),
+             link = words.join(' ');
+             link = link.replace('<img src="', 'https://www.roznama92news.com');
+             link = link.replace('"', '');
+             if (tries==1) p=tp;
+             if (p<9) {
+                 p++;
+                 getLink(p, station);
+             }
+             else if (p==9) p++;
+             tries = 0;
+             
+             /* Display Image */
+             $("div").append('<img src="'+link+'">');
+        }
+        
+        /*When Page is Not Found so it will search for common Page */
+        else {
+            if (tries == 0 && p<=10) {
+                tries = 0;
+                tp = p;
+                getLink(p+"&is_common=Y", station);
+                tries = 1;
+            }
+            else if (tries == 1 && p<=10) {
+                tries = 0;
+                p++;
+                getLink(p, station);
+            }
+        }
+     }
+   }); 
+}
+        </script>
+    </head>
+    <body onload="getSource()">
+        <div></div>
+    </body>
+</html>

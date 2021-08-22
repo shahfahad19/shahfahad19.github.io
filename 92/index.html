@@ -10,8 +10,8 @@
             var c = url.searchParams.get("c");
             function getSource() {
               getLink(0,c);
-              if (c==undefined)
-              $('center').html('City Not Found');
+              if (c==null)
+              $('center').html('<h1>City Not Found</h1>');
             }
             function getLink(p, station) {
               $.ajax({
@@ -63,6 +63,6 @@
     </head>
     <body onload="getSource()">
         <div></div>
-        <center>Loading...</center>
+        <center><h1>Loading... </h1></center>
     </body>
 </html>

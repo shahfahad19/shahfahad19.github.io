@@ -33,6 +33,7 @@ button, #logo, #loadingbox{
 }
 #box {
     flex-basis: 100%;
+    overflow-y: scroll;
     width : 100%;
 }
 .box {

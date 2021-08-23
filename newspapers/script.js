@@ -9,7 +9,6 @@ window.onload = () => {
         console.log("No it didn't. This happened:", err)
     });
  }
- 
 }
 $( document ).ready(function() {
 getList();

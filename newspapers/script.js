@@ -229,10 +229,10 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
         else mashriqmag += "]}"
     }
     mashriqmag += "]}";
-    
+    var n2 = `{"name": "92", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Peshawar", "images": []}, {"name": "Faisalabad", "images": []}, {"name": "Sargodha", "images": []}, {"name": "Quetta", "images": []}, {"name": "Multan", "images": []}]} `;
     
 
-    res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${mashriqmag}]}`;
+    res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${mashriqmag}, ${n2}]}`;
   res = JSON.parse(res);
     var paperList = res.newspapers.length;
   menu ="";
@@ -243,18 +243,18 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
  
  menu = replace(menu);
 var cUrl = window.location.href;
-//if (cUrl.includes("shahfahad19.github.io") && $("#credits").text().includes("Shah Fahad" )) {
+if (cUrl.includes("shahfahad19.github.io") && $("#credits").text().includes("Shah Fahad" )) {
 $("#loading").hide();
  $(".box").html(menu);
  $("#box").hide();
   $("#box").fadeIn(800);
  buttonColor();
-/*
+
 } 
 else {
 window.location.replace("http://shahfahad19.github.io/newspapers");
 } 
-*/
+
    
  
 }
@@ -262,9 +262,16 @@ window.location.replace("http://shahfahad19.github.io/newspapers");
 function citiesList(url) {
     cities = '<button style="grid-column: 1 / span 2; height:55px;box-shadow:0px 0px 5px grey"> ' +res.newspapers[url].name+'</button>';
     var cList = res.newspapers[url].cities;
-    for (var i = 0;i<cList.length;i++) {
-      cities += '<button onclick="newspaper('+url+','+i+')">'+cList[i].name+'</button>'
+    if (res.newspapers[url].name=="92") {
+    	for (var i = 0;i<cList.length;i++) { 
+    	cities += '<button onclick="get92('+i+')">'+cList[i].name+'</button>'
+        } 
+     } 
+   else {
+     for (var i = 0;i<cList.length;i++) {
+      cities += '<button onclick="newspaper('+url+','+i+')">'+cList[i].name+'</button>';
     }
+   } 
    cities = replace(cities);
    $(".box").html(cities);
    $("#box").hide();
@@ -273,6 +280,14 @@ function citiesList(url) {
    $("#back").css("display", "inline-block");
    back=1;
  }
+ 
+ function get92(station) {
+ 	station = parseInt(station);
+    station++;
+     $('#box').html('<iframe src="https://shahfahad19.github.io/92/?c='+station+'">');
+     back=2;
+}
+
 
 function newspaper(s,v) {
     var imgs = "";
@@ -339,6 +354,7 @@ return content;
 } 
 function goBack() {
     if (back==2) {
+        $('#box').html('<div class="box"></div' );
         $(".box").css("display", "grid");
         $(".box").html(cities);
         back = 1;

@@ -234,7 +234,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
     var mag92 = `{"name": "92 Magazine", "cities": [{"name": "Magazine", "images": [`;
     for (var i=1;i<=24;i++) {
         mag92+= `"https://www.roznama92news.com/backend/web/uploads/emagzine/2/${d.getFullYear()}/${month}/${magDate}/${i}.jpg"`;
-        if (i<16) mag92 += ",";
+        if (i<24) mag92 += ",";
         else mag92 += "]}"
     }
     mag92 += "]}";

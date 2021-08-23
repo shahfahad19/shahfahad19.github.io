@@ -230,7 +230,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
     }
     mashriqmag += "]}";
     
-    mag Date = sunday+sMonth+d.getFullYear();
+    magDate = sunday+sMonth+d.getFullYear();
     var mag92 = `{"name": "92 Magazine", "cities": [{"name": "Magazine", "images": [`;
     for (var i=1;i<=24;i++) {
         mag92+= `"https://www.roznama92news.com/backend/web/uploads/emagzine/2/${d.getFullYear()}/${month}/${magDate}/${i}.jpg"`;

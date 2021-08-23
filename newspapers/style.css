@@ -1,6 +1,7 @@
-@font-face {
+    	
+    @font-face {
     font-family: 'Urdu';
-    src: url('src/urdufont.ttf');
+    src: url('https://shahfahad19.github.io/newspapers/src/urdufont.ttf');
     format('truetype');
 } 
 
@@ -13,6 +14,9 @@ body {
     height: 100vh;
     margin: 0;
     color: RoyalBlue;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
     overflow: hidden;
 }
 video {
@@ -28,11 +32,15 @@ button {
 button, #logo, #loadingbox{
     font-family: "Urdu";
 }
+#box {
+    flex-basis: 100%;
+    overflow-y: scroll ;
+    width : 100%;
+}
 .box {
     width: 100vw;
     text-align: center;
     overflow-y: scroll;
-    height: 89vh;
     display: grid;
     grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(7, 80px);
@@ -50,14 +58,21 @@ button, #logo, #loadingbox{
 
 img {
     width:100vw;
-    margin-bottom: 5px;
+    
 }
 
+iframe {
+  width : 100%;
+  height : 100%;
+  border:none;
+} 
 #title {
     position: relative;
     text-align: center;
     background-color: RoyalBlue;
     color: white;
+    width: 100%;
+    flex-basis: 30px;
 }
 
 #dlmode {
@@ -100,8 +115,7 @@ img {
 
 #credits {
     width: 100%;
-    position: absolute;
-    bottom: 0px;
+    flex-basis: 30px;
     text-align: center;
     background-color: RoyalBlue;
     color: white;
@@ -113,11 +127,12 @@ img {
 }
 
 #loadingbox {
+    transform: translate(-50%,-50%);
+    font-size: 22px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    font-size: 22px;
 }
 
 #loading {

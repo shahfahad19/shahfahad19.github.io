@@ -340,6 +340,7 @@ content =content.replace("London", "لندن");
 content =content.replace("Kashmir", "کشمیر");
 content =content.replace("Hyderabad", "حیدرآباد");
 content =content.replace("Express", "روزنامہ ایکسپریس");
+content =content.replace("92", "روزنامہ 92");
 content =content.replace("Naibaat", "روزنامہ نئی بات");
 content =content.replace("ISLAM", "روزنامہ اسلام");
 content =content.replace("Jang", "روزنامہ جنگ");

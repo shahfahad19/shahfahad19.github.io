@@ -10,7 +10,8 @@ window.onload = () => {
     });
  }
  var height = window.innerHeight - 60;
- $("#box").style("flex-basis", height+"px");
+$("#box").style("flex-basis", height+"px");
+ $(".box").style("height", height+"px");
 }
 $( document ).ready(function() {
 getList();

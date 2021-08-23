@@ -25,7 +25,7 @@ function getList() {
        $("#credits").css("background-color", "#00468b");
        $(".box button").css("background-color", "#00468b");
        $("#dlicon").html("light_mode");
-       $("#loadingbox").css("color", "white");
+       $("#msgbox").css("color", "white");
    }
    else if (dl=="light") {
    	$("#dlicon").html("dark_mode");

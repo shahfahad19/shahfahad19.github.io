@@ -238,7 +238,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
         else mag92 += "]}"
     }
     mag92 += "]}";
-    var n2 = `{"name": "92", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Peshawar", "images": []}, {"name": "Faisalabad", "images": []}, {"name": "Sargodha", "images": []}, {"name": "Quetta", "images": []}, {"name": "Multan", "images": []}]} `;
+    var n2 = `{"name": "92 Newspaper", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Peshawar", "images": []}, {"name": "Faisalabad", "images": []}, {"name": "Sargodha", "images": []}, {"name": "Quetta", "images": []}, {"name": "Multan", "images": []}]} `;
     
 
     res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${n2}, ${mashriqmag}, ${mag92}]}`;
@@ -344,7 +344,7 @@ content =content.replace("London", "لندن");
 content =content.replace("Kashmir", "کشمیر");
 content =content.replace("Hyderabad", "حیدرآباد");
 content =content.replace("Express", "روزنامہ ایکسپریس");
-content =content.replace("92", "روزنامہ 92");
+content =content.replace("92 Newspaper", "روزنامہ 92");
 content =content.replace("Naibaat", "روزنامہ نئی بات");
 content =content.replace("ISLAM", "روزنامہ اسلام");
 content =content.replace("Jang", "روزنامہ جنگ");

@@ -5,6 +5,13 @@
         <style>
           img {
             width: 100%;
+          } 
+          h2 {
+            text-shadow: -0.5px -0.5px 0 #ffff, 0.5px -0.5px 0 #ffff, -0.5px 0.5px 0 #ffff, 0.5px 0.5px 0 #ffff;  
+          }
+          body {
+            background-color: #373737;
+            margin: 0px;
           }
         </style>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -15,7 +22,7 @@
             function getSource() {
               getLink(0,c);
               if (c==null)
-              $('center').html('<h1>City Not Found</h1>');
+              $('center').html('<h2>City Not Found</h2>');
             }
             function getLink(p, station) {
               $.ajax({
@@ -67,6 +74,6 @@
     </head>
     <body onload="getSource()">
         <div></div>
-        <center><h1>Loading... </h1></center>
+        <center><h2>صفحہ لوڈ ہو رہا ہے. انتظار کریں</h2></center>
     </body>
 </html>

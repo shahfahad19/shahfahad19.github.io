@@ -362,10 +362,10 @@ function goBack() {
        $("#back").css("display", "none");
        
     }
-    $("#loadingbox").hide();
+    $("#msgbox").hide();
     $("#box").hide();
-       $("#box").fadeIn(600);
-   buttonColor();
+    $("#box").fadeIn(600);
+    buttonColor();
 }
 
 function notAvail() {

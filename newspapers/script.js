@@ -244,7 +244,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
  menu = replace(menu);
 var cUrl = window.location.href;
 if (cUrl.includes("shahfahad19.github.io") && $("#credits").text().includes("Shah Fahad" )) {
-$("#loadingbox").hide();
+$("#msgbox").hide();
  $(".box").html(menu);
  $("#box").hide();
   $("#box").fadeIn(800);
@@ -305,15 +305,13 @@ function newspaper(s,v) {
    $(".box").css("display", "block");
    $(".box").html(imgs);
    $("#box").hide();
-   $("#loadingbox").html("تھوڑی دیر انتظار کریں");
-   $("#loadingbox").fadeIn(500);
+   $("#msg").html("تھوڑی دیر انتظار کریں");
+   $("#msgbox").fadeIn(500);
    var mainImg = new Image() ;
     mainImg.src = images[0];
     mainImg.onload = function() {
         $("#box").fadeIn(600); 
-      $("#loadingbox").hide();
-   	$("#loadingbox").html('<div id="loading"></div>');
-   
+      $("#msgbox").hide();
   } 
     
    	
@@ -376,8 +374,8 @@ function goBack() {
 
 function notAvail() {
    $("#box").hide();
-   $("#loadingbox").html("یہ اخبار فلحال دستیاب نہیں ہے");
-   $("#loadingbox").fadeIn(1000); 
+   $("#msg").html("یہ اخبار فلحال دستیاب نہیں ہے");
+   $("#msgbox").fadeIn(1000); 
 } 
     function dlmode() {
         if (dl=="dark") {
@@ -392,7 +390,7 @@ function notAvail() {
             $("img").css("filter", "invert(0%)");
         }
         else {
-            $("body").css("background-color", "#373737");
+       $("body").css("background-color", "#373737");
        $("#title").css("background-color", "#00468b");
        $("#credits").css("background-color", "#00468b");
        $(".box button").css("background-color", "#00468b");

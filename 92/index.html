@@ -7,7 +7,7 @@
             width: 100%;
           } 
           h2 {
-            -webkit-text-stroke:.3px white;
+            -webkit-text-stroke:.5px white;
           }
           body {
             background-color: #373737;
@@ -22,7 +22,8 @@
             function getSource() {
               getLink(0,c);
               if (c==null)
-              $('center').html('<h2>شہر کا اندراج کریں
+              $('center').html('<h2>City Not Found</h2>');
+            }
             function getLink(p, station) {
               $.ajax({
             url: "https://api.codetabs.com/v1/proxy?quest=www.roznama92news.com/efrontend/web/index.php/index2?station_id="+station+"&page_id="+p,
@@ -72,7 +73,7 @@
         </script>
     </head>
     <body onload="getSource()">
-        <center><h2>صفحات لوڈ ہو رہے ہیں، انتظار کریں</h2></center> 
+        <center><h2>صفحات لوڈ ہو رہے ہیں، انتظار کریں.</h2></center> 
         <div></div>
         
     </body>

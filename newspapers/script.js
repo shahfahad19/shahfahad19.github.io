@@ -229,7 +229,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
         else mashriqmag += "]}"
     }
     mashriqmag += "]}";
-    
+    /*
     magDate = sunday+sMonth+d.getFullYear();
     var mag92 = `{"name": "92 Magazine", "cities": [{"name": "Magazine", "images": [`;
     for (var i=1;i<=24;i++) {
@@ -237,11 +237,11 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
         if (i<24) mag92 += ",";
         else mag92 += "]}"
     }
-    mag92 += "]}";
+    mag92 += "]}";*/
     var n2 = `{"name": "92", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Peshawar", "images": []}, {"name": "Faisalabad", "images": []}, {"name": "Sargodha", "images": []}, {"name": "Quetta", "images": []}, {"name": "Multan", "images": []}]} `;
     
 
-    res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${n2}, ${mashriqmag}, ${mag92}]}`;
+    res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${n2}, ${mashriqmag}]}`;
   res = JSON.parse(res);
     var paperList = res.newspapers.length;
   menu ="";

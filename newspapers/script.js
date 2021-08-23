@@ -29,7 +29,7 @@ function getList() {
    }
    else if (dl=="light") {
    	$("#dlicon").html("dark_mode");
-      $("#loadingbox").css("color", "RoyalBlue");
+      $("#msgbox").css("color", "RoyalBlue");
   }  
  
    
@@ -380,7 +380,7 @@ function notAvail() {
        $("#title").css("background-color", "royalblue");
        $("#credits").css("background-color", "royalblue");
        $(".box button").css("background-color", "royalblue");
-         $("#loadingbox").css("color", "RoyalBlue");
+         $("#msgbox").css("color", "RoyalBlue");
             dl="light";
             localStorage.setItem("dlmode", "light");
             $("img").css("filter", "invert(0%)");
@@ -391,7 +391,7 @@ function notAvail() {
        $("#credits").css("background-color", "#00468b");
        $(".box button").css("background-color", "#00468b");
        $("#dlicon").html("light_mode");
-       $("#loadingbox").css("color", "white");
+       $("#msgbox").css("color", "white");
        dl="dark";
        localStorage.setItem("dlmode", "dark");
         }

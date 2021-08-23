@@ -129,9 +129,12 @@ iframe {
 }
 
 #msgbox {
-    font-family: 'Urdu', sans-serif;
     height:100%;
     display: flex;
     align-items: center;
     justify-content: center ;
+}
+
+#msg {
+  font-family: 'Urdu', sans-serif;
 }

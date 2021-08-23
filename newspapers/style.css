@@ -38,11 +38,9 @@ button, #logo, #loadingbox{
     flex-basis: 100%;
     overflow-y: scroll ;
     width : 100%;
-    display: block;
 }
 .box {
     width: 100vw;
-    height: 100%;
     text-align: center;
     overflow-y: scroll;
     display: grid;

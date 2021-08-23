@@ -130,7 +130,11 @@ iframe {
 
 #msgbox {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center ;
+}
+
+#msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }

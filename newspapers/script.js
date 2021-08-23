@@ -325,7 +325,8 @@ function newspaper(s,v) {
 
 function replace(content) {
 
-	content =content.replace("Mashriq Magazine", " مشرق میگزین"); 
+	content =content.replace("Mashriq Magazine", " مشرق میگزین")
+	content =content.replace("92 Magazine", "92 میگزین ");
 	content =content.replace("Lahore", "لاہور");
 content =content.replace("Peshawar", "پشاور");
 content =content.replace("Islamabad", " اسلام آباد");

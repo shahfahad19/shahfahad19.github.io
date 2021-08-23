@@ -244,7 +244,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
  menu = replace(menu);
 var cUrl = window.location.href;
 if (cUrl.includes("shahfahad19.github.io") && $("#credits").text().includes("Shah Fahad" )) {
-$("#loading").hide();
+$("#loadingbox").hide();
  $(".box").html(menu);
  $("#box").hide();
   $("#box").fadeIn(800);

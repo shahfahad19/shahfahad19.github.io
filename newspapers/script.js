@@ -237,7 +237,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
     var paperList = res.newspapers.length;
   menu ="";
  for (var x = 0; x<paperList ;x++) {
- var z = res.newspapers[x];
+ v3ar z = res.newspapers[x];
  menu+='<button id="'+x+'" onclick="citiesList('+x+')" class="menu">'+z.name+'</button>';
  }
  
@@ -254,9 +254,6 @@ $("#msgbox").hide();
 else {
 window.location.replace("http://shahfahad19.github.io/newspapers");
 } 
-
-   
- 
 }
 
 function citiesList(url) {
@@ -274,7 +271,6 @@ function citiesList(url) {
    } 
    cities = replace(cities);
    $(".box").html(cities);
-   $("#box").hide();
    $("#box").fadeIn(600);
    buttonColor();
    $("#back").css("display", "inline-block");

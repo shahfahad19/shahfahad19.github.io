@@ -237,7 +237,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
     var paperList = res.newspapers.length;
   menu ="";
  for (var x = 0; x<paperList ;x++) {
- v3ar z = res.newspapers[x];
+ var z = res.newspapers[x];
  menu+='<button id="'+x+'" onclick="citiesList('+x+')" class="menu">'+z.name+'</button>';
  }
  

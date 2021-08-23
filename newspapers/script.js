@@ -9,9 +9,7 @@ window.onload = () => {
         console.log("No it didn't. This happened:", err)
     });
  }
- var height = window.innerHeight - 60;
-$("#box").style("flex-basis", height+"px");
- $(".box").style("height", height+"px");
+ 
 }
 $( document ).ready(function() {
 getList();

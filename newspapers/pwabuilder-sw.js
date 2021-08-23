@@ -1,26 +1,28 @@
-// This is the "serving cached media" service worker
-
-const CACHE = "pwabuilder-offline";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+self.skipWaiting();
+self.addEventListener('install', function(e) {
+ e.waitUntil(
+   caches.open('newspapers').then(function(cache) {
+     return cache.addAll([
+       './',
+       'index.html',
+       'images/192x192.png',
+       'images/256x256.png',
+       'images/384x384.png',
+       'images/512x512.png',
+       'style.css',
+       'script.js',
+       'https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&amp;display=swap',
+       'https://shahfahad19.github.io/newspapers/src/urdufont.ttf'
+     ]);
+   })
+ );
 });
 
-workbox.loadModule('workbox-cacheable-response');
-workbox.loadModule('workbox-range-requests');
-
-workbox.routing.registerRoute(
-  /.*\.jpg/,
-  new workbox.strategies.CacheFirst({
-    cacheName: CACHE,
-    plugins: [
-      new workbox.cacheableResponse.CacheableResponsePlugin({statuses: [200]}),
-      new workbox.rangeRequests.RangeRequestsPlugin(),
-    ],
-  }),
-);
- 
+self.addEventListener('fetch', function(e) {
+  console.log(e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
+  );
+});

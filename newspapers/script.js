@@ -241,7 +241,7 @@ var magDate = sunday+"-"+sMonth+"-"+d.getFullYear();
     var n2 = `{"name": "92", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Peshawar", "images": []}, {"name": "Faisalabad", "images": []}, {"name": "Sargodha", "images": []}, {"name": "Quetta", "images": []}, {"name": "Multan", "images": []}]} `;
     
 
-    res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${mag2}, ${mashriqmag}, ${mag92}]}`;
+    res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${jinnah}, ${juraat}, ${mag92}, ${mashriqmag}, ${mag92}]}`;
   res = JSON.parse(res);
     var paperList = res.newspapers.length;
   menu ="";

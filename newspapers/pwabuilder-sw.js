@@ -10,6 +10,7 @@ self.addEventListener('install', function(e) {
        'images/384x384.png',
        'images/512x512.png',
        'https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&amp;display=swap',
+       'https://fonts.googleapis.com/css2?family=Material+Icons',
        'https://shahfahad19.github.io/newspapers/src/urdufont.ttf'
      ]);
    })

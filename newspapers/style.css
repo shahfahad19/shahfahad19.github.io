@@ -89,7 +89,7 @@ iframe {
     z-index: 2;
     background-color:transparent ;
     position: absolute;
-    top: -17px;
+    top: -18px;
     left: 13px;
     
 }
@@ -110,7 +110,7 @@ iframe {
     display: inline-block;
     text-align: center;
     font-size: 18px;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
 }
 
 #credits {

@@ -51,7 +51,7 @@ button, #logo, #msg{
 }
 
 .box button {
-    font-size: 20px;
+    font-size: 17px;
     padding: 5px;
     display: inline-block;
     margin: 10px;
@@ -89,7 +89,7 @@ iframe {
     z-index: 2;
     background-color:transparent ;
     position: absolute;
-    top: -14px;
+    top: -17px;
     left: 15px;
     
 }
@@ -110,7 +110,7 @@ iframe {
     display: inline-block;
     text-align: center;
     font-size: 20px;
-    padding-bottom: 2px;
+    padding-bottom: 8px;
 }
 
 #credits {

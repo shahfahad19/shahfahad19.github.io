@@ -268,7 +268,7 @@ window.location.replace("http://shahfahad19.github.io/newspapers");
 function citiesList(url) {
     cities = '<button style="grid-column: 1 / span 2; height:55px;box-shadow:0px 0px 5px grey"> ' +res.newspapers[url].name+'</button>';
     var cList = res.newspapers[url].cities;
-    if (res.newspapers[url].name=="92") {
+    if (res.newspapers[url].name=="92 Newspaper") {
     	for (var i = 0;i<cList.length;i++) { 
     	cities += '<button onclick="get92('+i+')">'+cList[i].name+'</button>'
         } 

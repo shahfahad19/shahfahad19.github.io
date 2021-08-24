@@ -256,7 +256,7 @@ if (cUrl.includes("shahfahad19.github.io") && $("#credits").text().includes("Sha
 $("#msgbox").hide();
  $(".box").html(menu);
  $("#box").hide();
-  $("#box").fadeIn(800);
+  $("#box").fadeIn(200);
  buttonColor();
 
 } 

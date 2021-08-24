@@ -374,7 +374,7 @@ function goBack() {
     }
     $("#msgbox").hide();
     $("#box").hide();
-    $("#box").fadeIn(600);
+    $("#box").fadeIn(200);
     buttonColor();
 }
 

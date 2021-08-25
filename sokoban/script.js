@@ -1,1 +1,304 @@
-var player='<div class="player"></div>',crate='<div class="crate"></div>';window.onload=(()=>{drawLevel(0),$(".info").hide(),showLevels(),document.addEventListener("swiped-left",function(n){swipe(-1)}),document.addEventListener("swiped-right",function(n){swipe(1)}),document.addEventListener("swiped-up",function(n){swipe(-10)}),document.addEventListener("swiped-down",function(n){swipe(10)}),$(document).on("keypress","input",function(n){37==n.which?swipe(-1):38==n.which?swipe(-10):39==n.which?swipe(1):40==n.which&&swipe(10)})}),swipe=(n=>{"none"==$(".info").css("display")&&move(n)}),showLevels=(()=>{$(".controls button").prop("disabled",!0);for(var n="",e=1;e<=15;e++){n+=`\n  <button class="shadow" onclick="selectLevel(${e-1})">${e}</button>\n `}$(".info").html(`\n <div class="lvlBtns">\n  <div>Select Level</div>\n  ${n}\n  <div style='background:transparent;color:white;'>Move the crates to marked locations to complete the level</div>\n  </div>`),$(".info").fadeIn(500)}),selectLevel=(n=>{"next"==n?(this.level++,n=this.level):"reset"==n&&(null==this.level&&(this.level=0),n=this.level),this.level=n,clearGame(),$(".level").html("Level "+(this.level+1)),drawLevel(this.level),$(".info").hide(),$(".controls button").prop("disabled",!1)}),drawLevel=(n=>{for(var e=levels[n],l=0;l<=90;l++)"."==e[l]?fill(l,"outside",""):"#"==e[l]?fill(l,"ground",'<div class="wall"></div>'):" "==e[l]?fill(l,"ground",""):"*"==e[l]?fill(l,"point",""):"@"==e[l]?fill(l,"ground",player):"£"==e[l]?fill(l,"ground",crate):"&"==e[l]&&fill(l,"point",crate)}),fill=((n,e,l)=>{$(".main").append(`<div id="${n}" class="${e}">${l}</div>`)}),clearGame=(()=>$(".main").html('<div class="info"></div>')),move=(n=>{var e=$(".player").parent().attr("id");e=parseInt(e),dest=e+n,next=dest+n;var l=$("#"+dest).html(),t=$("#"+next).html();""==l?($("#"+dest).html(player),$("#"+e).html("")):l==crate&&""==t&&($("#"+dest).html(player),$("#"+next).html(crate),$("#"+e).html(""),check())}),check=(()=>{var n=!0;$(".point").each(function(){$(this).html()!=crate&&(n=!1)}),n&&($(".info").html('\n      <div class="complete">\n      <h1>Level Completed </h1>\n      <br/>\n      <button onclick="selectLevel(\'next\')">Next</button>\n      </div>\n    '),$(".info").fadeIn(500),$(".controls button").prop("disabled",!0))}),showControls=(()=>{"none"==$(".controls").css("display")?($(".controls").css("display","grid"),$(".controlsbtn").html("Hide Controls")):($(".controls").hide(),$(".controlsbtn").html("Show Controls"))});var levels=["\n..###....\n..#*#....\n..#£####.\n###@ £*#.\n#* £ ###.\n####£#...\n...#*#...\n...###...\n.........\n","\n#####....\n#  @#....\n# ££#.###\n# £ #.#*#\n### ###*#\n.##    *#\n.#   #  #\n.#   ####\n.#####...\n","\n..####...\n.##  #...\n.# @£##..\n.##£  #..\n.## £ #..\n.#*£  #..\n.#**&*#..\n.######..\n.........\n","\n.####....\n.#@ ###..\n.# £  #..\n### # ##.\n#*# #  #.\n#*£  # #.\n#*   £ #.\n########.\n.........\n","\n.........\n..######.\n..#    #.\n###£££ #.\n#@ £** #.\n# £***##.\n####  #..\n...####..\n.........\n","\n.........\n..#####..\n###  @#..\n#  £* ##.\n#  *£* #.\n### &£ #.\n..#   ##.\n..#####..\n.........\n","\n..####...\n..#**#...\n.## *##..\n.#  £*#..\n## £  ##.\n#  #££ #.\n#  @   #.\n########.\n.........\n","\n.........\n########.\n#  #   #.\n# £**£ #.\n#@£*& ##.\n# £**£ #.\n#  #   #.\n########.\n.........\n","\n.........\n######...\n#    #...\n# £££##..\n#  #**###\n##  **£ #\n.#  @   #\n.########\n.........\n","\n.#######.\n.#**£**#.\n.#**#**#.\n.# £££ #.\n.#  £  #.\n.# £££ #.\n.#  #@ #.\n.#######.\n.........\n","\n.#####...\n.# @ ###.\n## #£  #.\n# &* * #.\n#  ££ ##.\n### #*#..\n..#   #..\n..#####..\n.........\n","\n.######..\n.#    #..\n.# £ @#..\n.##&  #..\n.# & ##..\n.# & #...\n.# & #...\n.# * #...\n.#####...\n","\n...####..\n...#  #..\n.###£ ##.\n.#  & @#.\n.#  &  #.\n.#  & ##.\n.###& #..\n...#*##..\n...###...\n","\n#####....\n#   #####\n# # #   #\n# £   £ #\n#**#£#£##\n#*@£   #.\n#**  ###.\n######...\n.........\n","\n.........\n.######..\n.#    ##.\n##*##£ #.\n# **£  #.\n#  #£  #.\n#  @ ###.\n######...\n.........\n"];
+var player = '<div class="player"></div>' ;
+var crate = '<div class="crate"></div>' ;
+
+window.onload = () => {
+ drawLevel(0);
+ $('.info').hide();
+ showLevels();
+ 
+ /*Controls */
+ document.addEventListener('swiped-left', function(e) { swipe(-1); });
+ 
+ document.addEventListener('swiped-right', function(e) { swipe(1); });
+
+ document.addEventListener('swiped-up', function(e) { swipe(-10); });
+
+ document.addEventListener('swiped-down', function(e) { swipe(10); });
+ 
+ $(document).on("keypress", "input", function(e) {
+  if(e.which == 37) { swipe(-1); }
+  else if(e.which == 38) { swipe(-10); } 
+  else if(e.which == 39) { swipe(1); }
+  else if(e.which == 40) { swipe(10); }
+}); 
+}
+
+swipe = direction => {
+  if ($('.info').css('display')=='none') {
+    move(direction);
+  }
+}
+
+/*Showing Levels List*/
+showLevels = () => {
+  $(".controls button").prop('disabled', true);
+  var lvls = ''; 
+  for (var i = 1; i<=15; i++) {
+  var j = i-1;
+  lvls += `
+  <button class="shadow" onclick="selectLevel(${j})">${i}</button>
+ `;
+ }
+ $('.info').html(`
+ <div class="lvlBtns">
+  <div>Select Level</div>
+  ${lvls}
+  <div style='background:transparent;color:white;'>Move the crates to marked locations to complete the level</div>
+  </div>`);
+ $('.info').fadeIn(500);
+}
+
+/*When Level Is Selected*/
+selectLevel = lvl => {
+  if (lvl=='next') {
+    this.level++;
+    lvl = this.level;
+  }
+  else if (lvl=='reset') {
+    if (this.level == undefined) {
+      this.level=0;
+    }
+    lvl = this.level;
+  }
+  this.level = lvl;
+  clearGame();
+  $('.level').html('Level '+(this.level+1));
+  drawLevel(this.level);
+  $('.info').hide();
+  $(".controls button").prop('disabled', false);
+}
+
+/*Drawing the level*/
+drawLevel = lvl => {
+  var level = levels[lvl];
+  for (var i=0;i<=90;i++) {
+    if (level[i]==".")
+      fill(i, 'outside', '');
+    else if (level[i]=="#")
+      fill(i, 'ground', '<div class="wall"></div>');
+    else if (level[i]==" ")
+      fill(i, 'ground', '');
+    else if (level[i]=="*")
+      fill(i, 'point', '');
+    else if (level[i]=="@")
+      fill(i, 'ground', player);
+    else if (level[i]=="£")
+      fill(i, 'ground', crate);
+    else if (level[i]=="&")
+      fill(i, 'point', crate);
+  }
+}
+
+fill = (id, className, content) => {
+  $('.main').append(`<div id="${id}" class="${className}">${content}</div>`);
+};
+
+/*Clearing The Game*/
+
+clearGame = () => $('.main').html('<div class="info"></div>');
+
+/*Player Movement*/
+move = (direction) => {
+  var pos = $('.player').parent().attr('id');
+  pos = parseInt(pos);
+  dest = pos + direction;
+  next = dest + direction;
+  var destC = $('#'+dest).html();
+  var nextC = $('#'+next).html();
+  if (destC=='') {
+    $('#'+dest).html(player);
+    $('#'+pos).html('');
+  }
+  else if (destC==crate && nextC=='') {
+    $('#'+dest).html(player);
+    $('#'+next).html(crate);
+    $('#'+pos).html('');
+    check();
+  }
+};
+
+/*Check if level is completed*/
+check = () => {
+  var completed = true;
+  $('.point').each(function(){
+    if ($(this).html()!=crate) {
+      completed = false;
+    }
+  });
+  if (completed) {
+    $('.info').html(`
+      <div class="complete">
+      <h1>Level Completed </h1>
+      <br/>
+      <button onclick="selectLevel('next')">Next</button>
+      </div>
+    `);
+    $('.info').fadeIn(500);
+    $(".controls button").prop('disabled', true);
+  } 
+};
+
+/* Show/Hide Controls */
+showControls = () => {
+  if ($('.controls').css('display')=='none') {
+    $('.controls').css('display', 'grid');
+    $('.controlsbtn').html('Hide Controls');
+  } 
+  else {
+    $('.controls').hide();
+    $('.controlsbtn').html('Show Controls') 
+  }
+}
+
+/*Levels List*/
+var levels = [`
+..###....
+..#*#....
+..#£####.
+###@ £*#.
+#* £ ###.
+####£#...
+...#*#...
+...###...
+.........
+`,`
+#####....
+#  @#....
+# ££#.###
+# £ #.#*#
+### ###*#
+.##    *#
+.#   #  #
+.#   ####
+.#####...
+`,`
+..####...
+.##  #...
+.# @£##..
+.##£  #..
+.## £ #..
+.#*£  #..
+.#**&*#..
+.######..
+.........
+`,`
+.####....
+.#@ ###..
+.# £  #..
+### # ##.
+#*# #  #.
+#*£  # #.
+#*   £ #.
+########.
+.........
+`,`
+.........
+..######.
+..#    #.
+###£££ #.
+#@ £** #.
+# £***##.
+####  #..
+...####..
+.........
+`,`
+.........
+..#####..
+###  @#..
+#  £* ##.
+#  *£* #.
+### &£ #.
+..#   ##.
+..#####..
+.........
+`,`
+..####...
+..#**#...
+.## *##..
+.#  £*#..
+## £  ##.
+#  #££ #.
+#  @   #.
+########.
+.........
+`,`
+.........
+########.
+#  #   #.
+# £**£ #.
+#@£*& ##.
+# £**£ #.
+#  #   #.
+########.
+.........
+`,`
+.........
+######...
+#    #...
+# £££##..
+#  #**###
+##  **£ #
+.#  @   #
+.########
+.........
+`,`
+.#######.
+.#**£**#.
+.#**#**#.
+.# £££ #.
+.#  £  #.
+.# £££ #.
+.#  #@ #.
+.#######.
+.........
+`,`
+.#####...
+.# @ ###.
+## #£  #.
+# &* * #.
+#  ££ ##.
+### #*#..
+..#   #..
+..#####..
+.........
+`,`
+.######..
+.#    #..
+.# £ @#..
+.##&  #..
+.# & ##..
+.# & #...
+.# & #...
+.# * #...
+.#####...
+`,`
+...####..
+...#  #..
+.###£ ##.
+.#  & @#.
+.#  &  #.
+.#  & ##.
+.###& #..
+...#*##..
+...###...
+`,`
+#####....
+#   #####
+# # #   #
+# £   £ #
+#**#£#£##
+#*@£   #.
+#**  ###.
+######...
+.........
+`,`
+.........
+.######..
+.#    ##.
+##*##£ #.
+# **£  #.
+#  #£  #.
+#  @ ###.
+######...
+.........
+`]; 

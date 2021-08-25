@@ -2,34 +2,45 @@ var player = '<div class="player"></div>' ;
 var crate = '<div class="crate"></div>' ;
 
 window.onload = () => {
+ 
  drawLevel(0);
  $('.info').hide();
  showLevels();
+ document.addEventListener('swiped-left', function(e) {
+    swipe(-1);
+ });
  
- /*Controls */
- document.addEventListener('swiped-left', function(e) { swipe(-1); });
- 
- document.addEventListener('swiped-right', function(e) { swipe(1); });
+ document.addEventListener('swiped-right', function(e) {
+   swipe(1);
+});
 
- document.addEventListener('swiped-up', function(e) { swipe(-10); });
+document.addEventListener('swiped-up', function(e) {
+  swipe(-10);
+});
 
- document.addEventListener('swiped-down', function(e) { swipe(10); });
- 
- $(document).on("keypress", "input", function(e) {
-  if(e.which == 37) { swipe(-1); }
-  else if(e.which == 38) { swipe(-10); } 
-  else if(e.which == 39) { swipe(1); }
-  else if(e.which == 40) { swipe(10); }
+document.addEventListener('swiped-down', function(e) {
+  swipe(10);
+});
+$(document).on("keypress", "input", function(e) {
+  if(e.which == 37) {
+    swipe(-1);
+  }
+  else if(e.which == 38) {
+    swipe(-10);
+  } 
+  else if(e.which == 39) {
+    swipe(1);
+  }
+  else if(e.which == 40) {
+    swipe(10);
+  }
 }); 
 }
-
 swipe = direction => {
   if ($('.info').css('display')=='none') {
     move(direction);
   }
 }
-
-/*Showing Levels List*/
 showLevels = () => {
   $(".controls button").prop('disabled', true);
   var lvls = ''; 
@@ -47,8 +58,6 @@ showLevels = () => {
   </div>`);
  $('.info').fadeIn(500);
 }
-
-/*When Level Is Selected*/
 selectLevel = lvl => {
   if (lvl=='next') {
     this.level++;
@@ -67,8 +76,6 @@ selectLevel = lvl => {
   $('.info').hide();
   $(".controls button").prop('disabled', false);
 }
-
-/*Drawing the level*/
 drawLevel = lvl => {
   var level = levels[lvl];
   for (var i=0;i<=90;i++) {
@@ -93,11 +100,8 @@ fill = (id, className, content) => {
   $('.main').append(`<div id="${id}" class="${className}">${content}</div>`);
 };
 
-/*Clearing The Game*/
-
 clearGame = () => $('.main').html('<div class="info"></div>');
 
-/*Player Movement*/
 move = (direction) => {
   var pos = $('.player').parent().attr('id');
   pos = parseInt(pos);
@@ -117,7 +121,6 @@ move = (direction) => {
   }
 };
 
-/*Check if level is completed*/
 check = () => {
   var completed = true;
   $('.point').each(function(){
@@ -137,8 +140,6 @@ check = () => {
     $(".controls button").prop('disabled', true);
   } 
 };
-
-/* Show/Hide Controls */
 showControls = () => {
   if ($('.controls').css('display')=='none') {
     $('.controls').css('display', 'grid');
@@ -150,7 +151,6 @@ showControls = () => {
   }
 }
 
-/*Levels List*/
 var levels = [`
 ..###....
 ..#*#....

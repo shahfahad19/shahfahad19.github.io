@@ -2,8 +2,6 @@ const pakNewspapers = "pak-newspapers";
 const assets = [
   "/",
   "/index.html",
-  "/style.css",
-  "/script.js",
   "/src/urdufont.ttf",
   "/src/jquery.min.js"
 ];

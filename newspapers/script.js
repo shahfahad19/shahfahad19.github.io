@@ -620,3 +620,13 @@ function wait(waiting) {
 		$("#msgbox").hide();
   }
 }
+window.onhashchange = function() {
+ let url = window.location.href;
+ var np = url.includes('newspaper');
+ var cit = url.includes('cities');
+ if (back==2 && !np) {
+   goBack();
+ }
+ else if (back==1 && !cit)
+  goBack();
+}

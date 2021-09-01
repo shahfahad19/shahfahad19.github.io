@@ -11,7 +11,33 @@
      outline: 0;
   
 }
-
+.img {
+    position: relative ;
+}
+.img:after {
+    content:"https://newspaperspk.netlify.app";
+    position: absolute;
+    top:0px;
+    left: 5px;
+    font-size: 10px;
+    color: #373737;
+    font-style: italic;
+    //width: 100%;
+}
+.img:before {
+    content:"Visit https://newspaperspk.netlify.app daily for updated newspapers";
+    position: absolute;
+    bottom:0px;
+    right: 5px;
+    //width: 100%;
+    font-size: 10px;
+    color: #373737;
+    font-style: italic;
+}
+a {
+  text-decoration: none;
+  color: white ;
+}
 body {
     height: 100vh;
     margin: 0;
@@ -19,7 +45,7 @@ body {
     display:flex;
     flex-direction: column;
     align-items:center;
-    overflow: hidden;
+    //overflow: hidden;
 }
 video {
     width:100%;
@@ -31,12 +57,20 @@ button {
     padding: 10px;
     color: white;
 }
-button, #logo, #msg{
+
+.box button {
+  position: relative;
+}
+button a {
+  height: 100%;
+  width :100%;
+  display: block;
+}
+button, #logo, #msg, button a{
     font-family: 'Noto Nastaliq Urdu Draft';
 }
 #box {
     flex-basis: 100%;
-    overflow-y: scroll ;
     width : 100%;
 }
 .box {
@@ -60,12 +94,6 @@ button, #logo, #msg{
 img {
     width:100vw;
 }
-
-iframe {
-  width : 100%;
-  height : 100%;
-  border:none;
-} 
 #title {
     position: relative;
     text-align: center;
@@ -131,4 +159,17 @@ iframe {
     display: flex;
     align-items: center;
     justify-content: center ;
+}
+
+.downpdf {
+  position: fixed;
+  right: 5px;
+  bottom: 45px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 999;
+  background-color: RoyalBlue;
+  color: white ;
+  visibility: none;
 }

@@ -253,18 +253,12 @@ function getList() {
 		menu += '<button id="' + x + '" onclick="citiesList(' + x + ')" class="menu"><a href="#cities" >' + z.name + '</a></button>';
 	}
 	
-var cUrl = window.location.href;
-if (cUrl.includes("newspaperspk.netlify.app") && $("#credits").text().includes("Shah Fahad" )) {
-
 	$("#msgbox").hide();
 	$(".box").html(menu);
 	$("#box").hide();
 	$("#box").fadeIn(200);
 	buttonColor();
-	} 
-	else {
-	window.location.replace("https://newspaperspk.netlify.app");
-	} 
+	
 	
 }
 

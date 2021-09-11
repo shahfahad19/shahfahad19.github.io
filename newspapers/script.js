@@ -618,7 +618,7 @@ window.onhashchange = function() {
  let url = window.location.href;
  var np = url.includes('newspaper');
  var cit = url.includes('cities');
- if (back==2 && !np) {
+ if (back==2 && cities) {
    goBack();
  }
  else if (back==1 && !cit)

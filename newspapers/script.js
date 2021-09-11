@@ -587,17 +587,17 @@ function pdf() {
 
 function modifyPaper(paper) {
   if (paper) {
-    //$('#title').hide();
-    //$('#credits').hide();
-    //$('body').css('display', 'block');
+    $('#title').hide();
+    $('#credits').hide();
+    $('body').css('display', 'block');
     $('.box').html('');
     $('.box').css('display', 'block');
     back = 2;
   }
   else {
-    //$('#title').show();
-    //$('#credits').show();
-    //$('body').css('display', 'flex');
+    $('#title').show();
+    $('#credits').show();
+    $('body').css('display', 'flex');
     $('.box').css('display', 'grid');
     $('.box').html(cities);
   }

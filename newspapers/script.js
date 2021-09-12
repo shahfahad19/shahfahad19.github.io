@@ -241,7 +241,8 @@ function getList() {
 	var pak = `{"name": "Pakistan", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Multan", "images": []}, {"name": "Peshawar", "images": []}, {"name": "Rawalpindi", "images": []}]} `;
 	var jpak = `{"name": "Jehan e Pakistan", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Multan", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Gujranwala", "images": []}]} `;
 	var dunya = `{"name": "Dunya", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Multan", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Gujranwala", "images": []}, {"name": "Faisalabad", "images": []}]} `;
-	res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${dunya}, ${jinnah}, ${juraat}, ${n2}, ${jpak}, ${nw}, ${pak}, ${mashriqmag}, ${mag92}]}`;
+	var nation = `{"name": "The Nation", "cities": [{"name": "Karachi", "images": []}, {"name": "Lahore", "images": []}, {"name": "Gwadar", "images": []}, {"name": "Islamabad", "images": []}, {"name": "Quetta", "images": []}]} `;
+        res = `{"newspapers": [${express}, ${naibaat}, ${jang}, ${mashriq}, ${alakhbar}, ${ispaper}, ${ummat}, ${jasarat}, ${dunya}, ${jinnah}, ${juraat}, ${n2}, ${jpak}, ${nw}, ${pak}, ${nation}, ${mashriqmag}, ${mag92}]}`;
 	rescopy = res;
 	res = replace(res)
 	res = JSON.parse(res);
@@ -269,7 +270,7 @@ function citiesList(url) {
 		for (var i = 0; i < cList.length; i++) {
 			cities += '<button onclick="get92(0,' + i + ')"><a href="#newspaper" >' + cList[i].name + '</a></button>'
 		}
-	} else if (rescopy.newspapers[url].name == "Nawaiwaqt" || rescopy.newspapers[url].name == "Pakistan") {
+	} else if (rescopy.newspapers[url].name == "Nawaiwaqt" || rescopy.newspapers[url].name == "Pakistan" || rescopy.newspapers[url].name == "The Nation") {
 		for (var i = 0; i < cList.length; i++) {
 			var cityName = rescopy.newspapers[url].cities[i].name;
 			cities += `<button onclick="getnwpak('${cityName}', '${rescopy.newspapers[url].name}')"><a href="#newspaper" >${cList[i].name}</a></button>`;
@@ -387,12 +388,15 @@ function getnwpak(city, np) {
   modifyPaper(true);
   wait(true);
   var imgsArr= [];
+  var furl;
 	if (np == "Pakistan") {
-		var furl = "https://api.codetabs.com/v1/proxy?quest=https://dailypakistan.com.pk/E-Paper/";
-		lim = 8;
+          furl = "https://api.codetabs.com/v1/proxy?quest=https://dailypakistan.com.pk/E-Paper/";
+		
+        } else if (np=="The Nation") {
+	  furl = "https://api.codetabs.com/v1/proxy?quest=https://nation.com.pk/E-Paper/";
 	} else {
 		furl = "https://api.codetabs.com/v1/proxy?quest=https://www.nawaiwaqt.com.pk/E-Paper/";
-		lim = 10;
+		
 	}
 	
 		$.ajax({

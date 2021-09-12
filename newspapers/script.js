@@ -586,7 +586,7 @@ function buttonColor() {
 }
 
 function pdf() {
-  $('.downpdf').css('visibility', 'hidden');
+  $('.downpdf').hide();
   window.print();
 }
 
@@ -597,7 +597,7 @@ function modifyPaper(paper) {
     $('body').css('display', 'block');
     $('.box').html('');
     $('.box').css('display', 'block');
-    $('.downpdf').css('visibility', 'visible');
+    $('.downpdf').show();
     back = 2;
   }
   else {
@@ -606,6 +606,7 @@ function modifyPaper(paper) {
     $('body').css('display', 'flex');
     $('.box').css('display', 'grid');
     $('.box').html(cities);
+    $('.downpdf').hide();
   }
 }
 

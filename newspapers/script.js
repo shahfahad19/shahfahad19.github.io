@@ -596,6 +596,7 @@ function modifyPaper(paper) {
     $('body').css('display', 'block');
     $('.box').html('');
     $('.box').css('display', 'block');
+    $('.downpdf').css('visibility', 'visible');
     back = 2;
   }
   else {
@@ -604,6 +605,7 @@ function modifyPaper(paper) {
     $('body').css('display', 'flex');
     $('.box').css('display', 'grid');
     $('.box').html(cities);
+    $('.downpdf').css('visibility', 'none');
   }
 }
 

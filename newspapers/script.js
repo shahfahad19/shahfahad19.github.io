@@ -586,6 +586,7 @@ function buttonColor() {
 }
 
 function pdf() {
+  $('.downpdf').css('visibility', 'hidden');
   window.print();
 }
 
@@ -605,7 +606,6 @@ function modifyPaper(paper) {
     $('body').css('display', 'flex');
     $('.box').css('display', 'grid');
     $('.box').html(cities);
-    $('.downpdf').css('visibility', 'none');
   }
 }
 

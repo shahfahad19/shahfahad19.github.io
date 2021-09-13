@@ -3,11 +3,9 @@
     <head>
         <title>Weather App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
         
     </head>
     <body>
@@ -17,25 +15,32 @@ search
 </span></div>
     
     <div id="searchbox">
-        <input type="text" id="search" placeholder="Enter City Name">
-        <button>Search</button>
-    </div>
-                    <div id="loadingbox">
-                        <div id="loading"></div>
+        <div class="inner">
+            <input type="text" id="search" placeholder="Enter City Name">
+            <button>Search</button>
         </div>
+    </div>
+        
+    <div id="loadingbox">
+        <div id="loading"></div>
+    </div>
         <div id="mainbody">
-            <img>
-            <span id="city"></span>
-            <br /><br /><br /><br />
-            <span id="temp"></span>
-            <span id="cond">&nbsp;</span>
-            <br /><br /><br />
+            <div id="cityname">
+                <span id="city"></span>
+                <img>
+            </div>
+            <br />
+            <div id="tempc">
+                <span id="cond">&nbsp;</span>
+                <span id="temp"></span>
+            </div>
+            <br />
             <center>
             <div id="more">
             <span id="label">Chance of Rain: </span><span id="chanceofrain">&nbsp;</span>
             </div>
             <div id="more">
-            <span id="label">Feel Like: </span><span id="feel">&nbsp;</span>
+            <span id="label">Feels Like: </span><span id="feel">&nbsp;</span>
             </div>
             
             <div id="more">
@@ -58,6 +63,5 @@ search
         <div id='footer'>
             Made By Shah Fahad
         </div>
-        <script src="script.js"></script>
     </body>
 </html>

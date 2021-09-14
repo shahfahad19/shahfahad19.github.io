@@ -433,8 +433,9 @@ function getnwpak(city, np) {
 function jpak(city) {
   modifyPaper(true);
   wait(true);
-	city = city.toLowerCase();
+  city = city.toLowerCase();
   date = day +""+ month +""+  (''+year).substr(2);
+  document.title = "Jehan-e-Pakistan_"+city+"_"+date;
   $.ajax({
     url: "https://api.codetabs.com/v1/proxy?quest=www.jehanpakistan.com/epaper/epaper.php?edition="+city+"&date="+date,
     success: function(data) {
@@ -460,7 +461,8 @@ function jpak(city) {
 }
 
 function newspaper(s, v) {
-  modifyPaper(true); 
+        modifyPaper(true); 
+        document.title = rescopy.newspapers[s].name+'-'+res.newspapers[s].cities[v]+'-'+day+'/'+shortMonths[month-1]+'/'+year;
 	var imgs = "";
 	var images = res.newspapers[s].cities[v].images;
 	for (var i = 0; i < images.length; i++) {

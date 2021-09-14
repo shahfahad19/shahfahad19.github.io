@@ -462,7 +462,7 @@ function jpak(city) {
 
 function newspaper(s, v) {
         modifyPaper(true); 
-        document.title = rescopy.newspapers[s].name+'-'+res.newspapers[s].cities[v].name+'-'+day+'/'+shortMonths[month-1]+'/'+year;
+        document.title = rescopy.newspapers[s].name+'-'+rescopy.newspapers[s].cities[v].name+'-'+day+'/'+shortMonths[month-1]+'/'+year;
 	var imgs = "";
 	var images = res.newspapers[s].cities[v].images;
 	for (var i = 0; i < images.length; i++) {

@@ -1,4 +1,4 @@
-var back = 0,	menu, cities, tries = 0, res, rescopy,tp, dl = localStorage.getItem("dlmode"), nwdate, isLoading = false, date, day, month, year;
+var back = 0,	menu, cities, tries = 0, res, rescopy,tp, dl = localStorage.getItem("dlmode"), nwdate, isLoading = false, date, day, month, year, shortMonths;
 
 
 
@@ -45,7 +45,7 @@ function getList() {
 	var months = ["january", "february", "march", "april", "may", "june",
 		"july", "august", "september", "october", "november", "december"
 	];
-	var shortMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+	shortMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 	var monthName = months[td.getMonth()];
 
 	if (day < 10) day = "0" + day;

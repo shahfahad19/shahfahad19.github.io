@@ -15,7 +15,7 @@
     position: relative ;
 }
 .img:after {
-    content:"https://newspaperspk.netlify.app";
+    content:"https://pkpapers.netlify.app";
     position: absolute;
     top:0px;
     left: 5px;
@@ -25,7 +25,7 @@
     //width: 100%;
 }
 .img:before {
-    content:"Visit https://newspaperspk.netlify.app daily for updated newspapers";
+    content:"Visit https://pkpapers.netlify.app daily for updated newspapers";
     position: absolute;
     bottom:0px;
     right: 5px;

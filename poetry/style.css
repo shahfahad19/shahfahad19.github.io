@@ -50,6 +50,7 @@ button {
 #poem {
     display: none;
     background: url('https://iili.io/2SgZFf.md.jpg');
+    background-size: cover;
     height: 600px;
     overflow: auto;
     margin: 8px;

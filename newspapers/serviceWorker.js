@@ -1,9 +1,10 @@
 const pakNewspapers = "pak-newspapers";
 const assets = [
   "/",
-  "/index.html",
-  "/src/urdufont.ttf",
-  "/src/jquery.min.js"
+  "./index.html",
+  "./style.css",
+  "./src/urdufont.ttf",
+  "./src/jquery.min.js"
 ];
 
 self.addEventListener("install", installEvent => {

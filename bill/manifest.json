@@ -2,7 +2,7 @@
     "theme_color": "#008dd3",
     "background_color": "#008dd3",
     "display": "standalone",
-    "scope": "/bill/",
+    "scope": "/bill",
     "start_url": "https://shahfahad19.github.io/bill",
     "name": "Pesco Bill Checker",
     "short_name": "Pesco Bill",

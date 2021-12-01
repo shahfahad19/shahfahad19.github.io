@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YT-Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+    <script src="https://shahfahad.netlify.app/ytapi.js"></script>
+    <script src="https://kit.fontawesome.com/0056fda1c1.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+* {
+    font-family: 'Outfit', sans-serif;
+    color: #282828;
+    user-select: none;
+}
+body {
+    margin: 0;
+}
+
+.header span {
+    margin: 0;
+    padding: 5px;
+    font-size: 30px;
+    color: #282828;
+}
+.header {
+    background: rgb(250,250,250);
+
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.input {
+    width: 90%;
+    display: inline-block ;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#link {
+    border: none;
+    border: 2px solid #ff0000;
+    outline:0;
+    padding: 10px;
+    font-size: 18px;
+}
+
+button {
+    background-color: Red;
+    color: white;
+    border:none;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #ff0000;
+}
+
+button:hover {
+    background-color: white;
+    color: #ff0000;
+    border-left-color: white;
+}
+
+#data {
+    width: 95vw;
+    display: flex;
+    flex-direction:column;
+    align-items: center;""
+}
+
+td {
+    padding: 0px 20px 15px 20px;
+    font-size: 22px;
+}
+
+.fas {
+    padding-right: 4px ;
+}
+#data p {
+    font-size: 20px;
+    width: 90%;
+    text-align: center ;
+}
+
+span:hover {
+    color: #ff0000;
+}
+
+#data {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#one {
+    display: none;
+}
+
+.channel {
+    background-color: #282828;
+    border-radius: 5px;
+    display: inline ;
+    padding: 0px 5px 2px 5px;
+    
+}
+
+.channel span {
+    color: white;
+    font-size: 14px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="https://www.vippng.com/png/full/6-60570_youtube-full-color-icon-youtube-logo-png.png">
+      <span class="navbar-brand">YT-Info</span>
+    </div>
+    <br />
+    <center>
+      <div class="input">
+      <input type="text" id="link" placeholder="Enter Youtube Video Link">
+      <button class="btn btn-primary" onclick="search(link.value)">Done</button>
+    </div>
+    </center>
+    
+    <br />
+    
+    <center>
+      <div id="data">
+      <div id="one">
+        <p id="title"></p>
+        <p class="channel">
+          <span class="fas fa-user"></span>
+          <span id="uploader">Name</span>
+        </p>
+        <br />
+      <table>
+        <tr>
+          <td>
+            <span class="fas fa-thumbs-up"></span>
+            <span id="likes">0</span>
+            
+          </td>
+          <br />
+          <td>
+            <span class="fas fa-thumbs-down"></span>
+            <span id="dislikes">0</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="fas fa-eye"></span>
+            <span id="views">0</span>
+            
+          </td>
+          <td>
+            <span class="fas fa-comment"></span>
+            <span id="comments">0</span>
+          </td>
+        </tr>
+      </table>
+      </div>
+      <div id="two">
+        <p style="width:100%" id="text">Enter a Link or Video ID</p>
+      </div>
+    </div>
+    </center>
+    
+    <script>
+        search = l => {
+    l = l.replace("https:", "");
+    l = l.replace("http:", "");
+    l = l.replaceAll("/", "");
+    l = l.replace("watch?v=", "");
+    l = l.replace("youtube.com", "");
+    l = l.replace("youtu.be", "");
+    l = l.replace("www.", "");
+    l = l.replace("m.", "");
+    e("one").style.display = "none";
+    e("two").style.display = "block";
+    e("text").innerHTML = "Loading...";
+    getData(l);
+}
+
+showData = data => {
+    e("title").innerHTML = "<p style='color:#ff0000;display:inline;border-bottom:2px solid #ff0000'>Title:</p> " + data.items[0].snippet.title;
+    e("uploader").innerHTML = data.items[0].snippet.channelTitle;
+    data = data.items[0].statistics;
+    e("likes").innerHTML = cnv(data.likeCount);
+    e("dislikes").innerHTML = cnv(data.dislikeCount);
+    e("views").innerHTML = cnv(data.viewCount);
+    e("comments").innerHTML = cnv(data.commentCount);
+    e("one").style.display = "block";
+    e("two").style.display = "none";
+}
+
+cnv = n => {
+    n = String(n);
+    var m = "";
+    if (n.length == 4)
+    m = n[0]+"."+n[1]+n[2]+"K";
+    else if (n.length==5)
+    m = n[0]+n[1]+"."+n[2]+n[3]+"K";
+    else if (n.length==6)
+    m = n[0]+n[1]+n[2]+"."+n[3]+n[4]+"K";
+    else if (n.length==7)
+    m = n[0]+"."+n[1]+n[2]+"M";
+    else if (n.length==8)
+    m = n[0]+n[1]+"."+n[2]+n[3]+"M";
+    else if (n.length==9)
+    m = n[0]+n[1]+n[2]+"."+n[3]+n[4]+"M";
+    else if (n.length==10)
+    m = n[0]+"."+n[1]+n[2]+"B";
+    else m=n;
+    return m;
+}
+
+e = id => {
+    return document.getElementById(id);
+}
+    </script>
+  </body>
+</html> 
